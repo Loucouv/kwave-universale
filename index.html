@@ -1,0 +1,1706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="KWave Universe – Official K-pop Merchandise Store. Shop authentic albums, photocards, lightsticks, apparel and collectibles. International shipping available.">
+  <meta name="keywords" content="K-pop merchandise, official K-pop albums, photocards, lightsticks, K-pop store, K-pop apparel, K-pop posters, buy K-pop merch online">
+  <title>KWave Universe – Official K-pop Merchandise Store</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --pink:#FF2D78;--pink-lt:#FF6FA8;--cyan:#00D4FF;--gold:#FFD700;
+      --dark:#0D0520;--purple:#1A0A2E;
+      --gp:linear-gradient(135deg,#FF2D78 0%,#A020F0 100%);
+      --gc:linear-gradient(135deg,#00D4FF 0%,#A020F0 100%);
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:'Poppins',sans-serif;background:var(--dark);color:#fff;overflow-x:hidden}
+    a{text-decoration:none;color:inherit}ul{list-style:none}
+
+    /* PAGE ROUTING */
+    .page{display:none}.page.active{display:block}
+
+    /* ── NAV ── */
+    nav{position:fixed;top:0;width:100%;z-index:1000;height:68px;padding:0 60px;
+      display:flex;align-items:center;justify-content:space-between;
+      background:rgba(13,5,32,.92);backdrop-filter:blur(22px);
+      border-bottom:1px solid rgba(255,45,120,.22)}
+    .nav-logo{font-family:'Black Han Sans',sans-serif;font-size:1.45rem;cursor:pointer;
+      background:var(--gp);-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+      background-clip:text;letter-spacing:1px}
+    .nav-links{display:flex;gap:2rem}
+    .nav-links a{color:rgba(255,255,255,.75);font-size:.88rem;font-weight:500;cursor:pointer;
+      padding-bottom:2px;border-bottom:2px solid transparent;transition:all .25s}
+    .nav-links a:hover,.nav-links a.active{color:var(--pink);border-bottom-color:var(--pink)}
+    .nav-cart{position:relative;cursor:pointer;font-size:1.3rem}
+    .cart-badge{position:absolute;top:-8px;right:-8px;background:var(--pink);border-radius:50%;
+      width:18px;height:18px;font-size:.6rem;display:flex;align-items:center;justify-content:center;font-weight:700}
+
+    /* ── BUTTONS ── */
+    .btn-primary{background:var(--gp);color:#fff;padding:13px 30px;border-radius:50px;font-weight:700;
+      font-size:.9rem;border:none;cursor:pointer;letter-spacing:.5px;
+      transition:transform .3s,box-shadow .3s;box-shadow:0 0 28px rgba(255,45,120,.35)}
+    .btn-primary:hover{transform:translateY(-3px);box-shadow:0 0 48px rgba(255,45,120,.6)}
+    .btn-outline{background:transparent;color:#fff;padding:12px 30px;border-radius:50px;font-weight:600;
+      font-size:.9rem;border:2px solid rgba(255,255,255,.28);cursor:pointer;transition:all .3s}
+    .btn-outline:hover{border-color:var(--cyan);color:var(--cyan)}
+    .btn-sm{padding:8px 16px!important;font-size:.78rem!important}
+
+    /* ── SECTIONS ── */
+    .section-header{text-align:center;margin-bottom:52px}
+    .section-tag{display:inline-block;background:rgba(255,45,120,.14);color:var(--pink);
+      padding:4px 16px;border-radius:50px;font-size:.72rem;font-weight:700;
+      text-transform:uppercase;letter-spacing:2px;margin-bottom:12px}
+    .section-title{font-family:'Black Han Sans',sans-serif;font-size:clamp(1.8rem,3vw,2.6rem);margin-bottom:10px}
+    .section-sub{color:rgba(255,255,255,.55);font-size:.95rem;max-width:500px;margin:0 auto;line-height:1.8}
+    .center-cta{text-align:center;margin-top:44px}
+    .divider{height:1px;background:linear-gradient(90deg,transparent,rgba(255,45,120,.3),transparent)}
+
+    /* ══════════════════════════════════════════════
+       K-POP CSS ART — PRODUCT COVERS
+    ══════════════════════════════════════════════ */
+    .prod-cover{
+      width:100%;height:100%;display:flex;flex-direction:column;
+      align-items:center;justify-content:center;text-align:center;
+      gap:5px;padding:18px;position:relative;overflow:hidden
+    }
+    /* Shared decorative circle */
+    .prod-cover::before{
+      content:'';position:absolute;border-radius:50%;
+      border:1px solid rgba(255,255,255,.08);
+      width:110%;height:110%;top:-5%;left:-5%
+    }
+    .prod-cover::after{
+      content:'';position:absolute;
+      width:200px;height:200px;border-radius:50%;
+      top:-60px;right:-60px;opacity:.12
+    }
+    .cv-emoji{font-size:2.4rem;line-height:1;margin-bottom:4px;filter:drop-shadow(0 0 8px currentColor)}
+    .cv-kr{font-family:'Black Han Sans',sans-serif;font-size:.82rem;letter-spacing:3px;opacity:.45;line-height:1}
+    .cv-title{font-family:'Black Han Sans',sans-serif;font-size:1.05rem;line-height:1.15;letter-spacing:.5px}
+    .cv-sub{font-size:.6rem;letter-spacing:1.8px;text-transform:uppercase;opacity:.55;margin-top:2px}
+    .cv-glow{position:absolute;border-radius:50%;filter:blur(30px);z-index:0;pointer-events:none}
+    .prod-cover > *{position:relative;z-index:1}
+
+    /* Individual product covers */
+    /* 1 Midnight Dreams – STARFIRE */
+    .cv-1{background:radial-gradient(ellipse at 30% 25%,#3B006B 0%,#1E0540 40%,#060B1E 100%);color:#FFD700}
+    .cv-1::after{background:#FFD700;width:120px;height:120px;top:-40px;right:-30px}
+    .cv-1 .cv-glow{background:#A020F0;width:160px;height:160px;bottom:-60px;left:-40px}
+    /* 2 Photocard Bundle */
+    .cv-2{background:linear-gradient(150deg,#FF2D78 0%,#9B00FF 100%);color:#fff}
+    .cv-2::after{background:#fff;width:90px;height:90px;top:-30px;right:-20px}
+    .cv-2 .cv-glow{background:#FF2D78;width:120px;height:120px;bottom:-40px;left:-30px}
+    /* 3 Lightstick Ver.3 */
+    .cv-3{background:linear-gradient(180deg,#030A1E 0%,#041840 60%,#030A1E 100%);color:#00D4FF}
+    .cv-3::after{background:#00D4FF;width:100px;height:100px;top:-30px;right:-20px}
+    .cv-3 .cv-glow{background:#00BFFF;width:180px;height:180px;top:50%;left:50%;transform:translate(-50%,-50%)}
+    /* 4 Group Poster A2 */
+    .cv-4{background:#080808;color:var(--pink)}
+    .cv-4::before{border:2px solid rgba(255,45,120,.35);width:85%;height:85%;top:7.5%;left:7.5%}
+    .cv-4::after{background:var(--pink);width:80px;height:80px;top:-20px;right:-20px}
+    .cv-4 .cv-glow{background:#FF2D78;width:120px;height:120px;bottom:-30px;left:-20px}
+    /* 5 Galaxy Hoodie */
+    .cv-5{background:linear-gradient(160deg,#0A1628 0%,#162040 60%,#1E2D50 100%);color:#A8C8FF}
+    .cv-5::after{background:#4080FF;width:90px;height:90px;top:-30px;right:-20px}
+    .cv-5 .cv-glow{background:#2050A0;width:140px;height:140px;bottom:-40px;left:-30px}
+    /* 6 Fan-Made Keychain */
+    .cv-6{background:linear-gradient(135deg,#FFB7D5 0%,#FFC8E2 50%,#FFD6EC 100%);color:#8B1A4A}
+    .cv-6::after{background:#FF69A0;width:80px;height:80px;top:-25px;right:-15px}
+    .cv-6 .cv-glow{background:#FF9EC4;width:120px;height:120px;bottom:-30px;left:-20px}
+    /* 7 Aurora Album – LUNARA */
+    .cv-7{background:linear-gradient(140deg,#FF6B35 0%,#F7931E 35%,#FFD700 65%,#FF69B4 100%);color:#2A0800}
+    .cv-7::after{background:#FFD700;width:100px;height:100px;top:-30px;right:-20px}
+    .cv-7 .cv-glow{background:#FF6B35;width:150px;height:150px;bottom:-50px;left:-40px}
+    /* 8 Holographic Photocard – Rare */
+    .cv-8{background:linear-gradient(135deg,#FF0080 0%,#7B00FF 25%,#00BFFF 50%,#7B00FF 75%,#FF0080 100%);color:#fff}
+    .cv-8::after{background:#fff;width:80px;height:80px;top:-25px;right:-15px;opacity:.3}
+    .cv-8 .cv-glow{background:#fff;width:140px;height:140px;top:50%;left:50%;transform:translate(-50%,-50%)}
+    /* 9 Neon Lightstick */
+    .cv-9{background:#040408;color:#00FFCC}
+    .cv-9::after{background:#00FFCC;width:100px;height:100px;top:-30px;right:-20px}
+    .cv-9 .cv-glow{background:#00FFCC;width:160px;height:160px;top:50%;left:50%;transform:translate(-50%,-50%)}
+    /* 10 Stars Align Collector */
+    .cv-10{background:linear-gradient(160deg,#050415 0%,#0D0830 50%,#150D45 100%);color:#C4AEFF}
+    .cv-10::after{background:#A080FF;width:90px;height:90px;top:-25px;right:-15px}
+    .cv-10 .cv-glow{background:#6040C0;width:160px;height:160px;bottom:-50px;left:-40px}
+    /* 11 Embroidered T-Shirt */
+    .cv-11{background:linear-gradient(160deg,#1A1A1A 0%,#252525 100%);color:#F0F0F0}
+    .cv-11::before{border:1px solid rgba(255,255,255,.12);width:80%;height:80%;top:10%;left:10%}
+    .cv-11::after{background:#E0E0E0;width:70px;height:70px;top:-20px;right:-15px}
+    .cv-11 .cv-glow{background:#606060;width:120px;height:120px;bottom:-30px;left:-20px}
+    /* 12 Washi Tape Set */
+    .cv-12{background:linear-gradient(160deg,#FEFAF4 0%,#FFF6E6 100%);color:#333}
+    .cv-12::after{background:#FF9EC4;width:80px;height:80px;top:-25px;right:-15px;opacity:.6}
+    .cv-12 .cv-glow{background:#FFB347;width:120px;height:120px;bottom:-30px;left:-20px}
+    /* 13 Holographic Solo Poster */
+    .cv-13{background:linear-gradient(120deg,#7B6100 0%,#D4A800 20%,#FFF5C0 40%,#D4A800 60%,#7B6100 80%,#D4A800 100%);color:#1A0800}
+    .cv-13::after{background:#FFD700;width:80px;height:80px;top:-25px;right:-15px;opacity:.8}
+    .cv-13 .cv-glow{background:#FFD700;width:140px;height:140px;top:50%;left:50%;transform:translate(-50%,-50%)}
+    /* 14 Enamel Pin Set */
+    .cv-14{background:linear-gradient(135deg,#1A1A2E 0%,#16213E 50%,#0F3460 100%);color:#E94560}
+    .cv-14::after{background:#E94560;width:80px;height:80px;top:-25px;right:-15px}
+    .cv-14 .cv-glow{background:#E94560;width:120px;height:120px;bottom:-30px;left:-20px}
+
+    /* ══════════════════════════════════════════════
+       BLOG CARD CSS ART COVERS
+    ══════════════════════════════════════════════ */
+    .blog-cover{
+      width:100%;height:100%;display:flex;flex-direction:column;
+      align-items:center;justify-content:center;text-align:center;
+      gap:10px;position:relative;overflow:hidden;padding:20px
+    }
+    .blog-cover::before{content:'';position:absolute;inset:0;
+      background:linear-gradient(transparent 40%,rgba(0,0,0,.6));z-index:1}
+    .bc-main{position:relative;z-index:2}
+    .bc-emoji{font-size:3rem;line-height:1;display:block;filter:drop-shadow(0 0 12px rgba(255,255,255,.4))}
+    .bc-label{font-family:'Black Han Sans',sans-serif;font-size:.78rem;letter-spacing:3px;
+      text-transform:uppercase;opacity:.8;margin-top:8px;display:block}
+    /* Blog cover backgrounds */
+    .bc-1{background:radial-gradient(ellipse at 30% 30%,#4B0082,#1E0540,#060B1E);color:#FFD700}
+    .bc-2{background:linear-gradient(150deg,#FF0060,#9B00FF,#FF2D78);color:#FFD6E7}
+    .bc-3{background:linear-gradient(160deg,#030A1E,#041840,#0A2A60);color:#00D4FF}
+    .bc-4{background:linear-gradient(135deg,#0D0520,#1A0A2E,#0A1040,#001A3A);color:#00D4FF}
+    .bc-5{background:linear-gradient(135deg,#C0185A,#A020F0,#FF2D78);color:#FFD6E7}
+    /* Animated glow for blog covers */
+    .blog-cover::after{content:'';position:absolute;border-radius:50%;
+      background:rgba(255,255,255,.06);width:200px;height:200px;
+      top:-60px;right:-60px;z-index:0}
+
+    /* ══════════════════════════════════════════════
+       SECTION BACKGROUNDS — K-POP CSS ART
+    ══════════════════════════════════════════════ */
+
+    /* HERO — Concert stage lighting */
+    .hero{
+      min-height:100vh;position:relative;display:flex;align-items:center;overflow:hidden;
+      background:
+        radial-gradient(ellipse at 15% 60%,rgba(160,32,240,.45) 0%,transparent 45%),
+        radial-gradient(ellipse at 85% 15%,rgba(255,45,120,.45) 0%,transparent 45%),
+        radial-gradient(ellipse at 50% 100%,rgba(0,212,255,.15) 0%,transparent 40%),
+        radial-gradient(ellipse at 50% 0%,rgba(255,45,120,.1) 0%,transparent 50%),
+        #060412
+    }
+    /* Scan lines effect */
+    .hero::before{
+      content:'';position:absolute;inset:0;
+      background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(255,255,255,.015) 2px,rgba(255,255,255,.015) 4px);
+      pointer-events:none;z-index:1
+    }
+    .hero-stars{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:1}
+    .spark{position:absolute;border-radius:50%;background:#fff;animation:sparkle var(--d,3s) ease-in-out infinite var(--dl,0s)}
+    @keyframes sparkle{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:.9;transform:scale(1)}}
+    .hero-content{position:relative;z-index:2;padding:130px 60px 80px;max-width:680px}
+    .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,45,120,.12);
+      border:1px solid rgba(255,45,120,.38);border-radius:50px;padding:6px 18px;font-size:.75rem;
+      color:var(--pink-lt);margin-bottom:22px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase}
+    .hero-badge::before{content:'✦';color:var(--pink)}
+    .hero h1{font-family:'Black Han Sans',sans-serif;font-size:clamp(2.6rem,6vw,5rem);line-height:1.08;margin-bottom:22px}
+    .hero h1 .hl{display:block;background:var(--gp);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .hero p{font-size:1.05rem;color:rgba(255,255,255,.75);line-height:1.85;margin-bottom:38px;max-width:480px}
+    .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+    .hero-trust{display:flex;align-items:center;gap:14px;margin-top:40px;font-size:.78rem;color:rgba(255,255,255,.5)}
+    .hero-trust-stars{color:var(--gold);font-size:.9rem}
+
+    /* HERO VISUAL — K-pop product card preview */
+    .hero-visual{position:absolute;right:60px;top:50%;transform:translateY(-50%);
+      display:grid;grid-template-columns:repeat(2,1fr);gap:14px;z-index:2}
+    .h-card{width:155px;height:195px;border-radius:18px;overflow:hidden;
+      border:1px solid rgba(255,255,255,.12);position:relative;
+      box-shadow:0 20px 60px rgba(0,0,0,.6),0 0 30px rgba(255,45,120,.15)}
+    .h-card:nth-child(odd){animation:float1 4s ease-in-out infinite}
+    .h-card:nth-child(even){animation:float2 4s ease-in-out infinite 1s}
+    @keyframes float1{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+    @keyframes float2{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+    /* Hero preview card content */
+    .hc-inner{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;
+      justify-content:center;text-align:center;gap:4px;padding:12px;position:relative;overflow:hidden}
+    .hc-emoji{font-size:2.8rem;filter:drop-shadow(0 0 10px currentColor)}
+    .hc-kr{font-family:'Black Han Sans',sans-serif;font-size:.7rem;letter-spacing:2px;opacity:.5}
+    .hc-name{font-family:'Black Han Sans',sans-serif;font-size:.8rem;line-height:1.2}
+    .hc-price{font-size:.8rem;color:var(--pink);font-weight:700;margin-top:4px}
+    .hc-label{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.85));
+      padding:20px 10px 10px;font-size:.7rem;font-weight:600}
+    .hc-bg1{background:radial-gradient(ellipse at 30% 25%,#3B006B,#060B1E)}
+    .hc-bg2{background:linear-gradient(160deg,#0A1628,#1E2D50)}
+    .hc-bg3{background:linear-gradient(180deg,#030A1E,#041840)}
+    .hc-bg4{background:linear-gradient(150deg,#FF2D78,#9B00FF)}
+
+    /* STATS */
+    .stats-bar{padding:26px 60px;display:flex;justify-content:center;gap:80px;
+      background:rgba(255,45,120,.07);
+      border-top:1px solid rgba(255,45,120,.18);border-bottom:1px solid rgba(255,45,120,.18)}
+    .stat-item{text-align:center}
+    .stat-num{font-family:'Black Han Sans',sans-serif;font-size:2rem;
+      background:var(--gp);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .stat-lbl{font-size:.72rem;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:1.2px;margin-top:2px}
+
+    /* CATEGORIES — Neon grid bg */
+    .cat-section{
+      padding:80px 60px;position:relative;
+      background:
+        linear-gradient(rgba(13,5,32,.92),rgba(13,5,32,.92)),
+        repeating-linear-gradient(0deg,rgba(255,45,120,.04) 0px,rgba(255,45,120,.04) 1px,transparent 1px,transparent 60px),
+        repeating-linear-gradient(90deg,rgba(255,45,120,.04) 0px,rgba(255,45,120,.04) 1px,transparent 1px,transparent 60px),
+        #060412
+    }
+    .cat-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:18px}
+    .cat-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);
+      border-radius:18px;padding:26px 14px;text-align:center;cursor:pointer;transition:all .3s;
+      backdrop-filter:blur(8px)}
+    .cat-card:hover{background:rgba(255,45,120,.18);border-color:var(--pink);
+      transform:translateY(-5px);box-shadow:0 20px 36px rgba(255,45,120,.22)}
+    .cat-icon{font-size:2.2rem;margin-bottom:10px;display:block}
+    .cat-name{font-size:.82rem;font-weight:600;color:rgba(255,255,255,.85)}
+    .cat-count{font-size:.72rem;color:rgba(255,255,255,.38);margin-top:3px}
+
+    /* PRODUCTS */
+    .products-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+    .prod-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
+      border-radius:18px;overflow:hidden;transition:all .4s;cursor:pointer}
+    .prod-card:hover{transform:translateY(-8px);border-color:rgba(255,45,120,.4);
+      box-shadow:0 28px 56px rgba(0,0,0,.4),0 0 24px rgba(255,45,120,.14)}
+    .prod-img{position:relative;aspect-ratio:1;overflow:hidden}
+    .prod-img .prod-cover{transition:transform .4s}
+    .prod-card:hover .prod-img .prod-cover{transform:scale(1.04)}
+    .prod-badge{position:absolute;top:10px;left:10px;background:var(--gp);color:#fff;
+      font-size:.66rem;font-weight:700;padding:3px 10px;border-radius:50px;text-transform:uppercase;z-index:5}
+    .prod-fav{position:absolute;top:10px;right:10px;background:rgba(0,0,0,.5);border-radius:50%;
+      width:34px;height:34px;display:flex;align-items:center;justify-content:center;
+      cursor:pointer;border:none;color:#fff;font-size:.95rem;transition:all .3s;z-index:5}
+    .prod-fav:hover{background:var(--pink)}
+    .prod-info{padding:14px}
+    .prod-cat{font-size:.68rem;color:var(--pink);text-transform:uppercase;letter-spacing:1px;font-weight:700;margin-bottom:5px}
+    .prod-name{font-size:.88rem;font-weight:600;color:rgba(255,255,255,.9);line-height:1.4;margin-bottom:7px}
+    .prod-rating{display:flex;align-items:center;gap:6px;margin-bottom:10px}
+    .stars{color:var(--gold);font-size:.72rem}
+    .r-count{font-size:.72rem;color:rgba(255,255,255,.35)}
+    .prod-foot{display:flex;align-items:center;justify-content:space-between}
+    .prod-price{font-family:'Black Han Sans',sans-serif;font-size:1.05rem;color:var(--pink)}
+    .prod-price .old{font-family:'Poppins',sans-serif;font-size:.7rem;color:rgba(255,255,255,.28);
+      text-decoration:line-through;display:block;font-weight:400}
+    .btn-cart{background:var(--gp);border:none;color:#fff;padding:7px 15px;border-radius:50px;
+      font-size:.76rem;font-weight:600;cursor:pointer;transition:all .3s;font-family:'Poppins',sans-serif}
+    .btn-cart:hover{box-shadow:0 0 18px rgba(255,45,120,.5);transform:scale(1.04)}
+
+    /* BESTSELLERS SECTION — Stage lights bg */
+    .bsellers-section{
+      padding:80px 60px;
+      background:
+        radial-gradient(ellipse at 10% 50%,rgba(255,45,120,.12) 0%,transparent 40%),
+        radial-gradient(ellipse at 90% 50%,rgba(160,32,240,.12) 0%,transparent 40%),
+        radial-gradient(ellipse at 50% 0%,rgba(255,45,120,.08) 0%,transparent 50%),
+        #060412
+    }
+
+    /* BLOG GRID */
+    .blog-preview-section{
+      padding:80px 60px;
+      background:
+        radial-gradient(ellipse at 20% 100%,rgba(160,32,240,.2) 0%,transparent 50%),
+        radial-gradient(ellipse at 80% 0%,rgba(255,45,120,.15) 0%,transparent 50%),
+        linear-gradient(rgba(13,5,32,.95),rgba(13,5,32,.95)),
+        repeating-linear-gradient(45deg,rgba(255,45,120,.02) 0px,rgba(255,45,120,.02) 1px,transparent 1px,transparent 20px)
+    }
+    .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    .blog-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
+      border-radius:18px;overflow:hidden;transition:all .4s;cursor:pointer}
+    .blog-card:hover{transform:translateY(-6px);border-color:rgba(255,45,120,.3);
+      box-shadow:0 20px 44px rgba(0,0,0,.4)}
+    .blog-img{height:190px;overflow:hidden;position:relative}
+    .blog-cover{transition:transform .4s}
+    .blog-card:hover .blog-cover{transform:scale(1.04)}
+    .blog-tag{position:absolute;bottom:12px;left:12px;background:var(--gp);color:#fff;
+      font-size:.66rem;font-weight:700;padding:3px 12px;border-radius:50px;text-transform:uppercase;z-index:3}
+    .blog-body{padding:18px}
+    .blog-meta{display:flex;gap:14px;font-size:.72rem;color:rgba(255,255,255,.38);margin-bottom:9px}
+    .blog-title{font-size:.95rem;font-weight:700;color:rgba(255,255,255,.9);line-height:1.5;margin-bottom:9px}
+    .blog-excerpt{font-size:.82rem;color:rgba(255,255,255,.5);line-height:1.75;margin-bottom:14px}
+    .blog-rm{font-size:.82rem;color:var(--pink);font-weight:600;display:inline-flex;
+      align-items:center;gap:5px;transition:gap .25s;cursor:pointer}
+    .blog-rm:hover{gap:10px}
+
+    /* NEWSLETTER — Concert spotlight */
+    .newsletter{
+      padding:80px 60px;text-align:center;
+      background:
+        radial-gradient(ellipse at 50% 0%,rgba(255,45,120,.35) 0%,transparent 60%),
+        radial-gradient(ellipse at 20% 100%,rgba(160,32,240,.25) 0%,transparent 50%),
+        radial-gradient(ellipse at 80% 100%,rgba(0,212,255,.15) 0%,transparent 50%),
+        #06020F
+    }
+    .newsletter h2{font-family:'Black Han Sans',sans-serif;font-size:2.4rem;margin-bottom:14px}
+    .newsletter p{color:rgba(255,255,255,.7);margin-bottom:34px;font-size:.95rem;
+      max-width:440px;margin-left:auto;margin-right:auto;line-height:1.8}
+    .nl-form{display:flex;gap:12px;max-width:480px;margin:0 auto}
+    .nl-input{flex:1;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);
+      border-radius:50px;padding:13px 22px;color:#fff;font-family:'Poppins',sans-serif;
+      font-size:.88rem;outline:none;transition:border-color .3s}
+    .nl-input:focus{border-color:var(--pink)}
+    .nl-input::placeholder{color:rgba(255,255,255,.3)}
+
+    /* FOOTER */
+    footer{background:#040210;border-top:1px solid rgba(255,255,255,.06);padding:60px 60px 28px}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:52px;margin-bottom:46px}
+    .footer-logo{font-family:'Black Han Sans',sans-serif;font-size:1.3rem;
+      background:var(--gp);-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+      background-clip:text;margin-bottom:14px}
+    .footer-desc{font-size:.82rem;color:rgba(255,255,255,.4);line-height:1.85;margin-bottom:22px}
+    .socials{display:flex;gap:10px}
+    .soc-btn{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;
+      font-size:.95rem;cursor:pointer;transition:all .3s}
+    .soc-btn:hover{background:var(--pink);border-color:var(--pink)}
+    .footer-col h4{font-weight:700;font-size:.85rem;margin-bottom:18px;color:rgba(255,255,255,.8)}
+    .footer-links li{margin-bottom:9px}
+    .footer-links a{color:rgba(255,255,255,.38);font-size:.82rem;transition:color .3s;cursor:pointer}
+    .footer-links a:hover{color:var(--pink)}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:22px;
+      display:flex;justify-content:space-between;align-items:center}
+    .footer-bottom p{font-size:.76rem;color:rgba(255,255,255,.28)}
+    .pay-icons{display:flex;gap:8px}
+    .pay-icon{background:rgba(255,255,255,.07);border-radius:5px;padding:3px 10px;
+      font-size:.68rem;color:rgba(255,255,255,.45);font-weight:700}
+
+    /* ══════════════════════════════════════════════
+       PRODUCT PAGE
+    ══════════════════════════════════════════════ */
+    .page-hero{
+      padding:120px 60px 52px;text-align:center;
+      background:
+        radial-gradient(ellipse at 50% 0%,rgba(255,45,120,.2) 0%,transparent 60%),
+        repeating-linear-gradient(90deg,rgba(255,45,120,.03) 0px,rgba(255,45,120,.03) 1px,transparent 1px,transparent 80px),
+        #060412
+    }
+    .page-hero h1{font-family:'Black Han Sans',sans-serif;font-size:2.8rem;margin-bottom:10px}
+    .page-hero p{color:rgba(255,255,255,.55);font-size:.95rem;max-width:480px;margin:0 auto}
+    .filter-bar{padding:0 60px 32px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+    .f-label{font-size:.82rem;color:rgba(255,255,255,.45);font-weight:600;margin-right:4px}
+    .f-btn{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);
+      color:rgba(255,255,255,.7);padding:7px 18px;border-radius:50px;font-size:.82rem;
+      cursor:pointer;transition:all .3s;font-family:'Poppins',sans-serif}
+    .f-btn.active,.f-btn:hover{background:var(--pink);border-color:var(--pink);color:#fff}
+    .search-wrap{margin-left:auto;position:relative}
+    .search-in{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);
+      border-radius:50px;padding:7px 18px 7px 38px;color:#fff;font-family:'Poppins',sans-serif;
+      font-size:.82rem;outline:none;width:210px;transition:border-color .3s}
+    .search-in:focus{border-color:var(--pink)}
+    .search-ic{position:absolute;left:13px;top:50%;transform:translateY(-50%);
+      color:rgba(255,255,255,.38);font-size:.85rem}
+    .prod-section{padding:0 60px 80px}
+
+    /* ══════════════════════════════════════════════
+       BLOG PAGE
+    ══════════════════════════════════════════════ */
+    .blog-hero-section{
+      padding:120px 60px 52px;
+      background:
+        radial-gradient(ellipse at 30% 0%,rgba(160,32,240,.3) 0%,transparent 50%),
+        radial-gradient(ellipse at 70% 100%,rgba(255,45,120,.2) 0%,transparent 50%),
+        #060412
+    }
+    .blog-hero-section h1{font-family:'Black Han Sans',sans-serif;font-size:2.8rem;margin-bottom:10px}
+    .blog-hero-section p{color:rgba(255,255,255,.55);font-size:.95rem}
+    /* Featured article */
+    .blog-featured{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
+      border-radius:22px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;margin:0 60px 52px}
+    .bf-img{height:380px;overflow:hidden}
+    .bf-content{padding:44px;display:flex;flex-direction:column;justify-content:center}
+    .bf-content h2{font-family:'Black Han Sans',sans-serif;font-size:1.7rem;line-height:1.3;margin-bottom:14px}
+    .bf-content p{color:rgba(255,255,255,.58);font-size:.88rem;line-height:1.85;margin-bottom:22px}
+    .blog-list{padding:0 60px 80px;display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+    .blog-list-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
+      border-radius:18px;overflow:hidden;display:grid;grid-template-columns:190px 1fr;
+      transition:all .4s;cursor:pointer}
+    .blog-list-card:hover{border-color:rgba(255,45,120,.3);transform:translateY(-4px);
+      box-shadow:0 20px 46px rgba(0,0,0,.4)}
+    .blc-img{overflow:hidden;height:100%}
+    .blc-img .blog-cover{height:100%}
+    .blc-content{padding:22px;display:flex;flex-direction:column;justify-content:center}
+    .blc-content h3{font-size:.95rem;font-weight:700;color:rgba(255,255,255,.9);line-height:1.5;margin-bottom:9px}
+    .blc-content p{font-size:.82rem;color:rgba(255,255,255,.48);line-height:1.75;margin-bottom:14px}
+
+    /* ══════════════════════════════════════════════
+       ABOUT PAGE
+    ══════════════════════════════════════════════ */
+    .about-hero-section{
+      min-height:56vh;display:flex;align-items:center;padding:130px 60px 80px;text-align:center;
+      background:
+        radial-gradient(ellipse at 80% 50%,rgba(255,45,120,.25) 0%,transparent 55%),
+        radial-gradient(ellipse at 20% 80%,rgba(160,32,240,.25) 0%,transparent 55%),
+        radial-gradient(ellipse at 50% 0%,rgba(0,212,255,.08) 0%,transparent 40%),
+        #060412
+    }
+    .about-hero-inner{width:100%}
+    .about-hero-section h1{font-family:'Black Han Sans',sans-serif;font-size:clamp(2.4rem,5vw,3.8rem);margin-bottom:22px}
+    .about-hero-section p{color:rgba(255,255,255,.65);font-size:1.05rem;max-width:580px;margin:0 auto;line-height:1.95}
+    .about-story{padding:80px 60px;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+    .about-txt h2{font-family:'Black Han Sans',sans-serif;font-size:2.1rem;margin-bottom:22px}
+    .about-txt p{color:rgba(255,255,255,.62);font-size:.9rem;line-height:1.9;margin-bottom:18px}
+    /* About CSS art images */
+    .about-imgs{position:relative;height:400px}
+    .a-img1,.a-img2{position:absolute;border-radius:18px;overflow:hidden;border:2px solid rgba(255,45,120,.28);box-shadow:0 20px 60px rgba(0,0,0,.5)}
+    .a-img1{width:64%;height:78%;top:0;left:0}
+    .a-img2{width:54%;height:68%;bottom:0;right:0}
+    /* CSS art store mockup */
+    .store-mockup{
+      width:100%;height:100%;display:flex;flex-direction:column;align-items:center;
+      justify-content:center;gap:12px;text-align:center;padding:24px;
+      background:linear-gradient(160deg,#0A0A1E 0%,#1A0A2E 50%,#2A0A3E 100%);
+      position:relative;overflow:hidden
+    }
+    .store-mockup::before{
+      content:'';position:absolute;inset:0;
+      background:repeating-linear-gradient(0deg,rgba(255,45,120,.04) 0px,rgba(255,45,120,.04) 1px,transparent 1px,transparent 40px),
+               repeating-linear-gradient(90deg,rgba(255,45,120,.04) 0px,rgba(255,45,120,.04) 1px,transparent 1px,transparent 40px)
+    }
+    .sm-title{font-family:'Black Han Sans',sans-serif;font-size:1rem;color:var(--pink);letter-spacing:2px;position:relative;z-index:1}
+    .sm-icons{font-size:2rem;position:relative;z-index:1;display:flex;gap:8px}
+    .sm-sub{font-size:.72rem;color:rgba(255,255,255,.4);letter-spacing:1px;text-transform:uppercase;position:relative;z-index:1}
+    .merch-mockup{
+      width:100%;height:100%;
+      background:linear-gradient(135deg,#1E0A30 0%,#0A1040 50%,#2A0850 100%);
+      display:flex;flex-direction:column;align-items:center;justify-content:center;
+      gap:10px;text-align:center;padding:20px;position:relative;overflow:hidden
+    }
+    .merch-mockup::after{
+      content:'';position:absolute;width:150px;height:150px;border-radius:50%;
+      background:rgba(255,45,120,.12);bottom:-40px;right:-40px;filter:blur(20px)
+    }
+
+    /* VALUES — Dark concert mesh */
+    .values-section{
+      padding:80px 60px;
+      background:
+        radial-gradient(ellipse at 0% 50%,rgba(255,45,120,.1) 0%,transparent 40%),
+        radial-gradient(ellipse at 100% 50%,rgba(160,32,240,.1) 0%,transparent 40%),
+        linear-gradient(rgba(13,5,32,.95),rgba(13,5,32,.95)),
+        repeating-linear-gradient(0deg,rgba(255,255,255,.01) 0px,rgba(255,255,255,.01) 1px,transparent 1px,transparent 50px),
+        repeating-linear-gradient(90deg,rgba(255,255,255,.01) 0px,rgba(255,255,255,.01) 1px,transparent 1px,transparent 50px)
+    }
+    .values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    .val-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
+      border-radius:18px;padding:32px;transition:all .3s}
+    .val-card:hover{border-color:var(--pink);box-shadow:0 0 26px rgba(255,45,120,.12)}
+    .val-icon{font-size:2.2rem;margin-bottom:14px}
+    .val-card h3{font-size:1.05rem;font-weight:700;margin-bottom:10px}
+    .val-card p{font-size:.84rem;color:rgba(255,255,255,.5);line-height:1.82}
+
+    /* SHIPPING */
+    .ship-section{
+      padding:80px 60px;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;
+      background:
+        radial-gradient(ellipse at 80% 50%,rgba(0,212,255,.08) 0%,transparent 50%),
+        linear-gradient(rgba(13,5,32,.97),rgba(13,5,32,.97))
+    }
+    .ship-txt h2{font-family:'Black Han Sans',sans-serif;font-size:2rem;margin-bottom:22px}
+    .ship-list li{display:flex;gap:14px;color:rgba(255,255,255,.65);font-size:.88rem;
+      line-height:1.65;margin-bottom:16px;align-items:flex-start}
+    .ship-list li::before{content:'✦';color:var(--pink);flex-shrink:0;margin-top:2px}
+    /* Shipping CSS art visual */
+    .ship-visual{border-radius:22px;overflow:hidden;height:380px;
+      border:1px solid rgba(0,212,255,.2);box-shadow:0 30px 70px rgba(0,0,0,.5);
+      background:linear-gradient(160deg,#030A1E,#041840,#0A2A60);
+      display:flex;flex-direction:column;align-items:center;justify-content:center;
+      gap:16px;text-align:center;padding:40px;position:relative;overflow:hidden}
+    .ship-visual::before{
+      content:'';position:absolute;inset:0;
+      background:
+        radial-gradient(circle at 30% 30%,rgba(0,212,255,.15),transparent 50%),
+        radial-gradient(circle at 70% 70%,rgba(160,32,240,.15),transparent 50%)
+    }
+    .ship-visual > *{position:relative;z-index:1}
+    .sv-globe{font-size:4rem;filter:drop-shadow(0 0 20px rgba(0,212,255,.6))}
+    .sv-title{font-family:'Black Han Sans',sans-serif;font-size:1.3rem;color:var(--cyan)}
+    .sv-sub{font-size:.82rem;color:rgba(255,255,255,.55);line-height:1.7;max-width:200px}
+    .sv-flags{font-size:1.4rem;letter-spacing:4px}
+
+    /* ══════════════════════════════════════════════
+       ARTICLE PAGES
+    ══════════════════════════════════════════════ */
+    .article-hero-section{min-height:52vh;display:flex;align-items:flex-end;padding:130px 0 0;position:relative;overflow:hidden}
+    /* Each article has its own CSS hero background */
+    .art-bg-1{background:radial-gradient(ellipse at 30% 30%,#4B0082,#1E0540,#060B1E);color:#FFD700}/* Albums */
+    .art-bg-2{background:linear-gradient(150deg,#3A0040 0%,#1A0040 40%,#400020 100%)}/* Photocards */
+    .art-bg-3{background:linear-gradient(180deg,#020810 0%,#030E25 50%,#020810 100%)}/* Lightsticks */
+    .art-bg-4{background:linear-gradient(135deg,#030418 0%,#0A0830 50%,#001040 100%)}/* Trends */
+    .art-bg-5{background:linear-gradient(135deg,#2A0015 0%,#1A0040 50%,#3A1000 100%)}/* Fan Culture */
+    /* Decorative glow on article heroes */
+    .article-hero-section::before{content:'';position:absolute;inset:0;
+      background:linear-gradient(transparent 20%,rgba(13,5,32,.85) 70%,var(--dark) 100%);z-index:1}
+    .article-hero-section::after{content:'';position:absolute;width:400px;height:400px;border-radius:50%;
+      filter:blur(60px);top:-100px;right:-100px;opacity:.3;z-index:0}
+    .art-bg-1::after{background:#A020F0}
+    .art-bg-2::after{background:#FF2D78}
+    .art-bg-3::after{background:#00D4FF}
+    .art-bg-4::after{background:#00D4FF}
+    .art-bg-5::after{background:#FF6B35}
+    /* Hero decoration emoji */
+    .art-hero-deco{position:absolute;font-size:8rem;opacity:.06;top:50%;left:60%;transform:translate(-50%,-50%);z-index:0;filter:blur(1px)}
+    .article-hero-content{position:relative;z-index:2;padding:40px 60px 48px;width:100%;max-width:900px}
+    .art-breadcrumb{font-size:.78rem;color:rgba(255,255,255,.45);margin-bottom:16px;
+      display:flex;align-items:center;gap:8px}
+    .art-breadcrumb span{cursor:pointer;transition:color .2s}
+    .art-breadcrumb span:hover{color:var(--pink)}
+    .art-breadcrumb .sep{color:rgba(255,255,255,.2)}
+    .article-hero-content h1{font-family:'Black Han Sans',sans-serif;font-size:clamp(1.8rem,4vw,3rem);line-height:1.15;margin-bottom:18px}
+    .article-meta{display:flex;gap:22px;font-size:.8rem;color:rgba(255,255,255,.5);flex-wrap:wrap}
+    /* Article layout */
+    .article-layout{display:grid;grid-template-columns:1fr 320px;gap:48px;max-width:1200px;margin:0 auto;padding:60px}
+    .art-lead{font-size:1.08rem;color:rgba(255,255,255,.8);line-height:1.95;margin-bottom:36px;
+      border-left:3px solid var(--pink);padding-left:20px}
+    .art-h2{font-family:'Black Han Sans',sans-serif;font-size:1.55rem;margin:38px 0 16px}
+    .art-h3{font-size:1.05rem;font-weight:700;margin:24px 0 10px;color:rgba(255,255,255,.9)}
+    .art-p{font-size:.92rem;color:rgba(255,255,255,.65);line-height:1.95;margin-bottom:18px}
+    .art-quote{background:rgba(255,45,120,.08);border-left:4px solid var(--pink);border-radius:0 12px 12px 0;
+      padding:18px 22px;margin:24px 0;font-size:.9rem;color:rgba(255,255,255,.8);font-style:italic;line-height:1.75}
+    .art-list{margin:12px 0 20px;padding-left:0;list-style:none}
+    .art-list li{padding:7px 0 7px 22px;position:relative;font-size:.9rem;color:rgba(255,255,255,.65);
+      line-height:1.7;border-bottom:1px solid rgba(255,255,255,.05)}
+    .art-list li::before{content:'✦';position:absolute;left:0;color:var(--pink);font-size:.7rem;top:11px}
+    /* Article image = CSS art scene */
+    .art-scene{border-radius:14px;margin:28px 0;height:280px;overflow:hidden;
+      border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;
+      justify-content:center;text-align:center;gap:12px;flex-direction:column;padding:30px;position:relative}
+    .art-scene::before{content:'';position:absolute;inset:0;
+      background:inherit;filter:brightness(1);z-index:0}
+    .art-scene > *{position:relative;z-index:1}
+    .as-icons{font-size:3rem;line-height:1;filter:drop-shadow(0 0 20px rgba(255,255,255,.3));display:flex;gap:16px}
+    .as-label{font-family:'Black Han Sans',sans-serif;font-size:1rem;letter-spacing:2px;opacity:.7}
+    .as-sub{font-size:.78rem;color:rgba(255,255,255,.45);letter-spacing:1px}
+    /* Scene themes */
+    .sc-albums{background:radial-gradient(ellipse at 40% 40%,#3B006B 0%,#060B1E 70%)}
+    .sc-photocards{background:linear-gradient(135deg,#4A0060 0%,#200040 70%)}
+    .sc-lightsticks{background:linear-gradient(180deg,#010408 0%,#020A20 100%)}
+    .sc-trends{background:linear-gradient(135deg,#030418 0%,#040825 100%)}
+    .sc-culture{background:linear-gradient(135deg,#3A0020 0%,#200040 70%)}
+    /* Product callout box */
+    .art-product-box{background:rgba(255,45,120,.08);border:1px solid rgba(255,45,120,.25);
+      border-radius:14px;padding:22px;margin:28px 0;display:flex;gap:16px;align-items:center}
+    .apb-cover{width:80px;height:80px;border-radius:10px;overflow:hidden;flex-shrink:0}
+    .apb-info{flex:1}
+    .apb-cat{font-size:.68rem;color:var(--pink);text-transform:uppercase;letter-spacing:1px;font-weight:700;margin-bottom:4px}
+    .apb-name{font-size:.92rem;font-weight:700;color:#fff;margin-bottom:6px}
+    .apb-price{font-family:'Black Han Sans',sans-serif;font-size:1rem;color:var(--pink)}
+    /* CTA box */
+    .art-cta-box{background:var(--gp);border-radius:16px;padding:32px;text-align:center;margin-top:40px}
+    .art-cta-box h3{font-family:'Black Han Sans',sans-serif;font-size:1.5rem;margin-bottom:10px}
+    .art-cta-box p{font-size:.88rem;opacity:.85;margin-bottom:20px;line-height:1.7}
+    /* Album/lightstick items */
+    .album-item{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
+      border-radius:14px;padding:18px;margin-bottom:16px;display:flex;gap:16px;align-items:center;
+      transition:all .3s;cursor:pointer}
+    .album-item:hover{border-color:rgba(255,45,120,.3);background:rgba(255,45,120,.06)}
+    .album-num{font-family:'Black Han Sans',sans-serif;font-size:1.8rem;color:rgba(255,45,120,.3);min-width:48px;text-align:center}
+    .album-cover{width:70px;height:70px;border-radius:10px;overflow:hidden;flex-shrink:0}
+    .album-info h4{font-size:.92rem;font-weight:700;color:#fff;margin-bottom:4px}
+    .album-info .album-group{font-size:.75rem;color:var(--pink);font-weight:600;margin-bottom:4px}
+    .album-info p{font-size:.8rem;color:rgba(255,255,255,.5);line-height:1.5}
+    /* Lightstick table */
+    .ls-table{width:100%;border-collapse:collapse;margin:20px 0}
+    .ls-table th{background:rgba(255,45,120,.15);color:var(--pink);font-size:.78rem;
+      padding:10px 14px;text-align:left;border-bottom:1px solid rgba(255,45,120,.2);
+      text-transform:uppercase;letter-spacing:.5px}
+    .ls-table td{padding:10px 14px;font-size:.82rem;color:rgba(255,255,255,.65);
+      border-bottom:1px solid rgba(255,255,255,.06)}
+    .ls-table tr:hover td{background:rgba(255,255,255,.03)}
+    /* Trend cards */
+    .trend-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
+      border-radius:14px;overflow:hidden;margin-bottom:20px;display:grid;grid-template-columns:160px 1fr}
+    .trend-cover{overflow:hidden}
+    .tc-inner{width:100%;height:140px;display:flex;align-items:center;justify-content:center;font-size:2.5rem;position:relative}
+    .trend-content{padding:20px}
+    .trend-num{font-family:'Black Han Sans',sans-serif;font-size:2rem;color:rgba(255,45,120,.25);line-height:1}
+    .trend-content h4{font-size:.95rem;font-weight:700;margin-bottom:8px}
+    .trend-content p{font-size:.82rem;color:rgba(255,255,255,.5);line-height:1.7}
+    /* Trend cover backgrounds */
+    .tc-1{background:radial-gradient(circle,#2A0060,#0A0020)}
+    .tc-2{background:linear-gradient(135deg,#003A00,#001A20)}
+    .tc-3{background:linear-gradient(135deg,#3A1A00,#2A0030)}
+    .tc-4{background:radial-gradient(circle,#400040,#0A0020)}
+    .tc-5{background:linear-gradient(135deg,#3A0020,#1A0040)}
+    /* SIDEBAR */
+    .sidebar-section{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);
+      border-radius:16px;padding:22px;margin-bottom:24px}
+    .sidebar-section h4{font-size:.88rem;font-weight:700;margin-bottom:16px;
+      color:rgba(255,255,255,.8);text-transform:uppercase;letter-spacing:1px}
+    .sidebar-prod{display:flex;gap:12px;margin-bottom:14px;cursor:pointer;transition:opacity .2s;align-items:center}
+    .sidebar-prod:hover{opacity:.8}
+    .sp-cover{width:60px;height:60px;border-radius:10px;overflow:hidden;flex-shrink:0}
+    .sp-name{font-size:.8rem;font-weight:600;color:rgba(255,255,255,.85);line-height:1.3;margin-bottom:4px}
+    .sp-price{font-size:.8rem;color:var(--pink);font-weight:700}
+    .related-art{display:flex;gap:10px;margin-bottom:12px;cursor:pointer;align-items:flex-start;transition:opacity .2s}
+    .related-art:hover{opacity:.8}
+    .ra-cover{width:70px;height:55px;border-radius:8px;overflow:hidden;flex-shrink:0}
+    .ra-title{font-size:.78rem;font-weight:600;color:rgba(255,255,255,.8);line-height:1.35}
+    .ra-date{font-size:.7rem;color:rgba(255,255,255,.35);margin-top:3px}
+    /* TOAST / SCROLL-TOP / MODAL */
+    .toast{position:fixed;bottom:88px;right:28px;background:rgba(20,8,40,.96);
+      border:1px solid rgba(255,45,120,.38);border-radius:12px;padding:14px 18px;
+      font-size:.82rem;z-index:9999;transform:translateY(100px);opacity:0;
+      transition:all .38s;backdrop-filter:blur(10px);max-width:260px}
+    .toast.show{transform:translateY(0);opacity:1}
+    .scroll-top{position:fixed;bottom:26px;right:28px;width:46px;height:46px;
+      background:var(--gp);border-radius:50%;display:flex;align-items:center;
+      justify-content:center;cursor:pointer;font-size:1.15rem;
+      box-shadow:0 0 18px rgba(255,45,120,.38);z-index:999;transition:transform .3s;border:none;color:#fff}
+    .scroll-top:hover{transform:translateY(-3px)}
+    .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.88);
+      z-index:2000;align-items:center;justify-content:center;backdrop-filter:blur(6px)}
+    .modal-overlay.open{display:flex}
+    .modal{background:#130830;border:1px solid rgba(255,45,120,.3);border-radius:24px;
+      max-width:720px;width:90%;overflow:hidden;display:grid;grid-template-columns:1fr 1fr}
+    .modal-img{height:400px;overflow:hidden}
+    .modal-content{padding:36px;display:flex;flex-direction:column;justify-content:space-between}
+    .modal-close{align-self:flex-end;background:rgba(255,255,255,.1);border:none;color:#fff;
+      width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:1rem;transition:background .3s}
+    .modal-close:hover{background:var(--pink)}
+    .modal-content h2{font-family:'Black Han Sans',sans-serif;font-size:1.5rem;margin-bottom:8px}
+    .modal-price{font-family:'Black Han Sans',sans-serif;font-size:1.6rem;color:var(--pink);margin-bottom:14px}
+    .modal-desc{font-size:.84rem;color:rgba(255,255,255,.6);line-height:1.8;margin-bottom:22px}
+    .qty-wrap{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+    .qty-btn{background:rgba(255,255,255,.1);border:none;color:#fff;width:32px;height:32px;
+      border-radius:8px;cursor:pointer;font-size:1.1rem;transition:background .3s}
+    .qty-btn:hover{background:var(--pink)}
+    .qty-val{font-weight:700;font-size:1rem;min-width:28px;text-align:center}
+
+    /* ══════════════════════════════════════════════
+       HAMBURGER MENU
+    ══════════════════════════════════════════════ */
+    .hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;
+      background:none;border:none;cursor:pointer;padding:6px;z-index:1001}
+    .hamburger span{display:block;width:24px;height:2px;background:#fff;
+      border-radius:2px;transition:all .3s}
+    .hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+    .hamburger.open span:nth-child(2){opacity:0;transform:translateX(-8px)}
+    .hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+    /* ══════════════════════════════════════════════
+       RESPONSIVE — TABLET ≤1100px
+    ══════════════════════════════════════════════ */
+    @media(max-width:1100px){
+      nav{padding:0 30px}
+      .hero-visual{display:none}
+      .hero-content{max-width:100%;padding:120px 30px 70px}
+      .hero h1{font-size:clamp(2.2rem,5vw,4rem)}
+      .stats-bar{gap:40px;padding:24px 30px}
+      .cat-section,.bsellers-section,.blog-preview-section,.newsletter,.values-section{padding:60px 30px}
+      .cat-grid{grid-template-columns:repeat(3,1fr)}
+      .products-grid{grid-template-columns:repeat(3,1fr)}
+      .blog-grid{grid-template-columns:repeat(2,1fr)}
+      .blog-featured{margin:0 30px 44px;grid-template-columns:1fr 1fr}
+      .bf-img{height:300px}
+      .blog-list{padding:0 30px 60px;grid-template-columns:1fr 1fr}
+      .about-story{padding:60px 30px;gap:40px}
+      .about-imgs{height:320px}
+      .values-section{padding:60px 30px}
+      .ship-section{padding:60px 30px;gap:40px}
+      .about-hero-section{padding:110px 30px 60px}
+      .page-hero{padding:110px 30px 44px}
+      .blog-hero-section{padding:110px 30px 44px}
+      .filter-bar{padding:0 30px 26px}
+      .prod-section{padding:0 30px 60px}
+      .footer-grid{grid-template-columns:1fr 1fr;gap:36px}
+      footer{padding:48px 30px 24px}
+      .article-layout{padding:48px 30px;gap:32px}
+      .article-hero-content{padding:36px 30px 44px}
+    }
+
+    /* ══════════════════════════════════════════════
+       RESPONSIVE — MOBILE ≤768px
+    ══════════════════════════════════════════════ */
+    @media(max-width:768px){
+      /* NAV — hamburger */
+      .hamburger{display:flex}
+      .nav-links{
+        display:none;position:fixed;top:68px;left:0;right:0;
+        flex-direction:column;gap:0;
+        background:rgba(10,4,28,.97);
+        border-bottom:1px solid rgba(255,45,120,.25);
+        z-index:998;backdrop-filter:blur(20px)
+      }
+      .nav-links.open{display:flex}
+      .nav-links li{border-bottom:1px solid rgba(255,255,255,.06)}
+      .nav-links a{
+        display:block;padding:16px 24px;font-size:1rem;font-weight:600;
+        border-bottom:none!important;color:rgba(255,255,255,.85)
+      }
+      .nav-links a.active,.nav-links a:hover{background:rgba(255,45,120,.1);color:var(--pink)}
+
+      /* HERO */
+      .hero-content{padding:100px 20px 52px}
+      .hero h1{font-size:2rem;line-height:1.12}
+      .hero p{font-size:.92rem}
+      .hero-cta{flex-direction:column;gap:12px}
+      .hero-cta .btn-primary,.hero-cta .btn-outline{width:100%;text-align:center;padding:14px 20px}
+      .hero-trust{font-size:.74rem}
+
+      /* STATS */
+      .stats-bar{padding:18px 20px;gap:0;flex-wrap:wrap;justify-content:space-around}
+      .stat-item{flex:0 0 45%;text-align:center;padding:10px 0}
+      .stat-num{font-size:1.6rem}
+      .stat-lbl{font-size:.68rem}
+
+      /* CATEGORIES */
+      .cat-section{padding:44px 20px}
+      .cat-grid{grid-template-columns:repeat(3,1fr);gap:10px}
+      .cat-card{padding:18px 8px}
+      .cat-icon{font-size:1.8rem}
+      .cat-name{font-size:.72rem}
+      .cat-count{display:none}
+
+      /* PRODUCTS */
+      .bsellers-section{padding:44px 20px}
+      .products-grid{grid-template-columns:repeat(2,1fr);gap:12px}
+      .prod-info{padding:10px}
+      .prod-name{font-size:.8rem}
+      .prod-price{font-size:.95rem}
+
+      /* BLOG PREVIEW */
+      .blog-preview-section{padding:44px 20px}
+      .blog-grid{grid-template-columns:1fr}
+
+      /* BLOG PAGE */
+      .blog-hero-section{padding:95px 20px 36px}
+      .blog-featured{grid-template-columns:1fr;margin:0 20px 36px;border-radius:16px}
+      .bf-img{height:200px}
+      .bf-content{padding:22px}
+      .bf-content h2{font-size:1.3rem}
+      .blog-list{grid-template-columns:1fr;padding:0 20px 52px}
+      .blog-list-card{grid-template-columns:1fr}
+      .blc-img{height:150px}
+      .blc-img .blog-cover{height:150px}
+
+      /* NEWSLETTER */
+      .newsletter{padding:44px 20px}
+      .newsletter h2{font-size:1.8rem}
+      .nl-form{flex-direction:column;gap:10px}
+      .nl-input{border-radius:14px;padding:14px 20px}
+      .nl-form .btn-primary{border-radius:14px;width:100%;padding:14px}
+
+      /* ABOUT */
+      .about-hero-section{min-height:auto;padding:95px 20px 52px}
+      .about-hero-section h1{font-size:2rem}
+      .about-hero-section p{font-size:.9rem}
+      .about-story{grid-template-columns:1fr;padding:44px 20px;gap:36px}
+      .about-imgs{height:220px}
+      .a-img2{display:none}
+      .values-section{padding:44px 20px}
+      .values-grid{grid-template-columns:1fr}
+      .ship-section{grid-template-columns:1fr;padding:44px 20px;gap:32px}
+      .ship-visual{height:200px}
+      .sv-globe{font-size:2.8rem}
+
+      /* PRODUCTS PAGE */
+      .page-hero{padding:95px 20px 36px}
+      .page-hero h1{font-size:2rem}
+      .filter-bar{padding:0 20px 20px;flex-wrap:wrap;gap:8px}
+      .f-label{display:none}
+      .f-btn{padding:6px 14px;font-size:.76rem}
+      .search-wrap{margin-left:0;width:100%}
+      .search-in{width:100%;border-radius:10px}
+      .prod-section{padding:0 20px 52px}
+
+      /* ARTICLE */
+      .article-hero-section{min-height:38vh}
+      .article-hero-content{padding:24px 20px 32px}
+      .article-hero-content h1{font-size:1.6rem}
+      .article-meta{gap:12px;font-size:.74rem}
+      .art-hero-deco{font-size:5rem;opacity:.04}
+      .article-layout{grid-template-columns:1fr;padding:28px 20px;gap:0}
+      .article-sidebar{display:none}
+      .art-lead{font-size:.95rem;padding-left:14px}
+      .art-h2{font-size:1.3rem}
+      .art-scene{height:200px;padding:20px}
+      .as-icons{font-size:2rem;gap:8px}
+      .album-item{flex-wrap:wrap;gap:10px;padding:14px}
+      .album-num{font-size:1.3rem;min-width:36px}
+      .album-cover{width:56px;height:56px}
+      .album-info h4{font-size:.85rem}
+      .ls-table{font-size:.72rem;display:block;overflow-x:auto;white-space:nowrap}
+      .trend-card{grid-template-columns:1fr}
+      .tc-inner{height:100px}
+      .art-product-box{flex-wrap:wrap}
+      .apb-cover{width:60px;height:60px}
+
+      /* FOOTER */
+      .footer-grid{grid-template-columns:1fr;gap:24px}
+      footer{padding:36px 20px 20px}
+      .footer-bottom{flex-direction:column;gap:10px;text-align:center}
+      .pay-icons{justify-content:center}
+
+      /* MODAL */
+      .modal{grid-template-columns:1fr;width:95%;border-radius:16px}
+      .modal-img{height:220px}
+      .modal-content{padding:22px}
+      .modal-content h2{font-size:1.2rem}
+      .modal-price{font-size:1.3rem}
+    }
+
+    /* ══════════════════════════════════════════════
+       RESPONSIVE — SMALL MOBILE ≤480px
+    ══════════════════════════════════════════════ */
+    @media(max-width:480px){
+      .hero h1{font-size:1.75rem}
+      .cat-grid{grid-template-columns:repeat(2,1fr)}
+      .products-grid{grid-template-columns:1fr}
+      .prod-img{aspect-ratio:4/3}
+      .section-title{font-size:1.5rem}
+      .stat-item{flex:0 0 48%}
+      .blog-featured{margin:0 12px 30px}
+      .bf-content{padding:18px}
+      .bf-content h2{font-size:1.1rem}
+      .blog-list{padding:0 12px 44px}
+      footer{padding:30px 16px 18px}
+      nav{padding:0 16px}
+      .newsletter{padding:36px 16px}
+      .newsletter h2{font-size:1.5rem}
+      .article-hero-content h1{font-size:1.4rem}
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo" onclick="showPage('home')">韓流 KWave Universe</div>
+  <ul class="nav-links" id="navLinks">
+    <li><a onclick="showPage('home');closeNav()" id="nav-home" class="active">Home</a></li>
+    <li><a onclick="showPage('products');closeNav()" id="nav-products">Shop</a></li>
+    <li><a onclick="showPage('blog');closeNav()" id="nav-blog">Blog</a></li>
+    <li><a onclick="showPage('about');closeNav()" id="nav-about">About Us</a></li>
+  </ul>
+  <div style="display:flex;align-items:center;gap:16px">
+    <div class="nav-cart" onclick="showToast('🛍️ Cart: '+cartCount+' item(s)')">
+      🛒<span class="cart-badge" id="cartCount">0</span>
+    </div>
+    <button class="hamburger" id="hamburger" onclick="toggleNav()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════════════
+     HOME
+══════════════════════════════════════════════ -->
+<div id="home" class="page active">
+  <section class="hero">
+    <div class="hero-stars" id="heroStars"></div>
+    <div class="hero-content">
+      <div class="hero-badge">✦ Official K-pop Merchandise Store</div>
+      <h1>Your Universe of<span class="hl">K-pop Culture</span>Starts Here</h1>
+      <p>Discover authentic albums, limited-edition photocards, official lightsticks, and exclusive fan merchandise — loved by K-pop fans worldwide.</p>
+      <div class="hero-cta">
+        <button class="btn-primary" onclick="showPage('products')">Shop Now →</button>
+        <button class="btn-outline" onclick="showPage('about')">Our Story</button>
+      </div>
+      <div class="hero-trust">
+        <span class="hero-trust-stars">★★★★★</span>
+        <span>Trusted by <strong>50,000+</strong> fans in 40+ countries</span>
+      </div>
+    </div>
+    <!-- K-pop themed product preview cards -->
+    <div class="hero-visual">
+      <div class="h-card">
+        <div class="hc-inner hc-bg1"><div class="hc-emoji">💿</div><div class="hc-kr">스타파이어</div><div class="hc-name">Midnight Dreams</div><div class="hc-price">$35</div></div>
+      </div>
+      <div class="h-card">
+        <div class="hc-inner hc-bg2"><div class="hc-emoji">👕</div><div class="hc-kr">갤럭시 시리즈</div><div class="hc-name">Galaxy Hoodie</div><div class="hc-price">$58</div></div>
+      </div>
+      <div class="h-card">
+        <div class="hc-inner hc-bg3"><div class="hc-emoji">✨</div><div class="hc-kr">공식 응원봉</div><div class="hc-name">Lightstick Ver.3</div><div class="hc-price">$55</div></div>
+      </div>
+      <div class="h-card">
+        <div class="hc-inner hc-bg4"><div class="hc-emoji">🃏</div><div class="hc-kr">포토카드 세트</div><div class="hc-name">Photocard Bundle</div><div class="hc-price">$12</div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="stats-bar">
+    <div class="stat-item"><div class="stat-num">50K+</div><div class="stat-lbl">Happy Fans</div></div>
+    <div class="stat-item"><div class="stat-num">800+</div><div class="stat-lbl">Products</div></div>
+    <div class="stat-item"><div class="stat-num">40+</div><div class="stat-lbl">Countries</div></div>
+    <div class="stat-item"><div class="stat-num">4.9★</div><div class="stat-lbl">Avg Rating</div></div>
+  </div>
+
+  <section class="cat-section">
+    <div class="section-header">
+      <div class="section-tag">Browse</div>
+      <h2 class="section-title">Shop by Category</h2>
+      <p class="section-sub">Albums, photocards, lightsticks, posters, apparel and fan-made — all in one place.</p>
+    </div>
+    <div class="cat-grid">
+      <div class="cat-card" onclick="filterProducts('Albums')"><span class="cat-icon">💿</span><div class="cat-name">Albums</div><div class="cat-count">120+ items</div></div>
+      <div class="cat-card" onclick="filterProducts('Photocards')"><span class="cat-icon">🃏</span><div class="cat-name">Photocards</div><div class="cat-count">200+ items</div></div>
+      <div class="cat-card" onclick="filterProducts('Lightsticks')"><span class="cat-icon">✨</span><div class="cat-name">Lightsticks</div><div class="cat-count">45+ items</div></div>
+      <div class="cat-card" onclick="filterProducts('Posters')"><span class="cat-icon">🖼️</span><div class="cat-name">Posters</div><div class="cat-count">80+ items</div></div>
+      <div class="cat-card" onclick="filterProducts('Apparel')"><span class="cat-icon">👕</span><div class="cat-name">Apparel</div><div class="cat-count">60+ items</div></div>
+      <div class="cat-card" onclick="filterProducts('Fan-Made')"><span class="cat-icon">🎁</span><div class="cat-name">Fan-Made</div><div class="cat-count">95+ items</div></div>
+    </div>
+  </section>
+  <div class="divider"></div>
+
+  <section class="bsellers-section">
+    <div class="section-header">
+      <div class="section-tag">Top Picks</div>
+      <h2 class="section-title">Best Sellers</h2>
+      <p class="section-sub">Fan favourites that keep selling out — grab yours before they're gone.</p>
+    </div>
+    <div class="products-grid" id="bestsellers"></div>
+    <div class="center-cta"><button class="btn-primary" onclick="showPage('products')">View All Products →</button></div>
+  </section>
+  <div class="divider"></div>
+
+  <section class="blog-preview-section">
+    <div class="section-header">
+      <div class="section-tag">Insights</div>
+      <h2 class="section-title">From Our Blog</h2>
+      <p class="section-sub">K-pop trends, collection tips, and fan culture guides.</p>
+    </div>
+    <div class="blog-grid" id="homeBlog"></div>
+    <div class="center-cta"><button class="btn-outline" onclick="showPage('blog')">Read All Articles →</button></div>
+  </section>
+
+  <div class="newsletter">
+    <div class="section-tag">Stay Connected</div>
+    <h2>Join the KWave Community</h2>
+    <p>Exclusive restocks, limited drops, fan events, and special discounts — straight to your inbox.</p>
+    <form class="nl-form" onsubmit="handleNewsletter(event)">
+      <input type="email" class="nl-input" placeholder="Enter your email address" required>
+      <button type="submit" class="btn-primary">Subscribe ✦</button>
+    </form>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     PRODUCTS PAGE
+══════════════════════════════════════════════ -->
+<div id="products" class="page">
+  <div class="page-hero">
+    <div class="section-tag">Official Store</div>
+    <h1>Shop All Products</h1>
+    <p>Authentic K-pop merchandise — officially licensed, fan-made collectibles, curated with love.</p>
+  </div>
+  <div class="filter-bar">
+    <span class="f-label">Filter:</span>
+    <button class="f-btn active" onclick="filterProducts('All')">All</button>
+    <button class="f-btn" onclick="filterProducts('Albums')">💿 Albums</button>
+    <button class="f-btn" onclick="filterProducts('Photocards')">🃏 Photocards</button>
+    <button class="f-btn" onclick="filterProducts('Lightsticks')">✨ Lightsticks</button>
+    <button class="f-btn" onclick="filterProducts('Posters')">🖼️ Posters</button>
+    <button class="f-btn" onclick="filterProducts('Apparel')">👕 Apparel</button>
+    <button class="f-btn" onclick="filterProducts('Fan-Made')">🎁 Fan-Made</button>
+    <div class="search-wrap">
+      <span class="search-ic">🔍</span>
+      <input type="text" class="search-in" placeholder="Search products…" oninput="searchProducts(this.value)">
+    </div>
+  </div>
+  <div class="prod-section"><div class="products-grid" id="allProducts"></div></div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     BLOG PAGE
+══════════════════════════════════════════════ -->
+<div id="blog" class="page">
+  <div class="blog-hero-section">
+    <div class="section-tag">KWave Blog</div>
+    <h1>K-pop News &amp; Guides</h1>
+    <p>Expert tips, trend reports, and fan community stories.</p>
+  </div>
+  <div class="blog-featured">
+    <div class="bf-img">
+      <div class="blog-cover bc-1" style="height:100%">
+        <div class="bc-main"><span class="bc-emoji">💿</span><span class="bc-label">Albums &amp; Collecting</span></div>
+      </div>
+    </div>
+    <div class="bf-content">
+      <div class="section-tag" style="text-align:left">Featured</div>
+      <h2>Top 10 Must-Have K-pop Albums for Every Fan in 2026</h2>
+      <div class="blog-meta" style="margin-bottom:14px"><span>📅 May 15, 2026</span><span>⏱ 8 min read</span></div>
+      <p>Whether you're a seasoned collector or just starting your K-pop journey, these ten landmark albums are absolute essentials. From iconic debut releases to record-breaking comebacks — the definitive list every fan should own.</p>
+      <button class="btn-primary btn-sm" onclick="showArticle(1)">Read Full Article →</button>
+    </div>
+  </div>
+  <div class="blog-list" id="blogList"></div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     ABOUT PAGE
+══════════════════════════════════════════════ -->
+<div id="about" class="page">
+  <div class="about-hero-section">
+    <div class="about-hero-inner">
+      <div class="section-tag">Our Story</div>
+      <h1>Born from Fan Culture,<br>Built for <span style="background:var(--gp);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">True Fans</span></h1>
+      <p>KWave Universe started as a passion project in 2020 — a small fan-run shop that grew into an internationally trusted K-pop merchandise destination serving fans across 40+ countries.</p>
+    </div>
+  </div>
+  <section class="about-story">
+    <div class="about-txt">
+      <div class="section-tag" style="text-align:left">How We Started</div>
+      <h2>A Passion Project That Became a Global Community</h2>
+      <p>KWave Universe was founded by a dedicated group of K-pop fans who struggled to find authentic, high-quality merchandise in one place. Tired of counterfeits and unreliable sellers, they built something better.</p>
+      <p>From a small Jakarta-based online store, we've grown to ship official albums, licensed photocards, concert lightsticks, and fan-made products to fans in over 40 countries — while keeping the same fan-first spirit from day one.</p>
+      <button class="btn-outline" onclick="showPage('products')" style="margin-top:10px">Shop Our Collection →</button>
+    </div>
+    <div class="about-imgs">
+      <div class="a-img1">
+        <div class="store-mockup">
+          <div class="sm-icons">💿🃏✨</div>
+          <div class="sm-title">KWave Universe</div>
+          <div class="sm-sub">공식 굿즈 스토어<br>Official Merch Store</div>
+          <div class="sm-icons" style="margin-top:8px">🖼️👕🎁</div>
+        </div>
+      </div>
+      <div class="a-img2">
+        <div class="merch-mockup">
+          <div style="font-size:2.4rem;position:relative;z-index:1">🌏</div>
+          <div style="font-family:'Black Han Sans',sans-serif;font-size:1rem;color:var(--cyan);position:relative;z-index:1">40+ Countries</div>
+          <div style="font-size:.78rem;color:rgba(255,255,255,.45);position:relative;z-index:1;text-align:center;line-height:1.6">인터내셔널 배송<br>International Shipping</div>
+          <div style="font-size:1.4rem;letter-spacing:3px;position:relative;z-index:1">🇮🇩🇺🇸🇬🇧🇦🇺</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="divider"></div>
+  <section class="values-section">
+    <div class="section-header">
+      <div class="section-tag">What We Stand For</div>
+      <h2 class="section-title">Our Core Values</h2>
+      <p class="section-sub">Authenticity, community, and respect for fan culture guide every decision.</p>
+    </div>
+    <div class="values-grid">
+      <div class="val-card"><div class="val-icon">💎</div><h3>100% Authentic</h3><p>We partner with official distributors to guarantee every product is authentic. No counterfeits, ever.</p></div>
+      <div class="val-card"><div class="val-icon">🌏</div><h3>Global Community</h3><p>K-pop belongs to everyone. We ship worldwide with multilingual support so all fans feel welcome.</p></div>
+      <div class="val-card"><div class="val-icon">💝</div><h3>Fan-First Approach</h3><p>We are fans ourselves. Every selection and decision is guided by what the community actually wants.</p></div>
+      <div class="val-card"><div class="val-icon">🌱</div><h3>Ethical &amp; Inclusive</h3><p>We celebrate diversity in K-pop fandom and ensure all content and products are respectful and inclusive.</p></div>
+      <div class="val-card"><div class="val-icon">🔒</div><h3>Secure &amp; Trusted</h3><p>Encrypted payments, secure packaging, and tracked international shipping for complete peace of mind.</p></div>
+      <div class="val-card"><div class="val-icon">⚡</div><h3>Fast &amp; Reliable</h3><p>Most orders ship within 1–2 business days via trusted global couriers so your merch arrives safely.</p></div>
+    </div>
+  </section>
+  <div class="ship-section">
+    <div class="ship-txt">
+      <div class="section-tag">Worldwide</div>
+      <h2>International Shipping &amp; Secure Checkout</h2>
+      <ul class="ship-list">
+        <li>Ships to 40+ countries: Indonesia, USA, UK, Australia, Singapore, Malaysia, and more.</li>
+        <li>Standard delivery 7–14 business days. Express options available at checkout.</li>
+        <li>All orders are tracked and insured — tracking number sent by email upon dispatch.</li>
+        <li>Visa, Mastercard, PayPal, GoPay, and OVO accepted.</li>
+        <li>30-day return policy on unopened products. Fan-made items are final sale.</li>
+        <li>100% secure SSL checkout — your data is fully protected.</li>
+      </ul>
+      <button class="btn-primary" onclick="showPage('products')" style="margin-top:22px">Start Shopping →</button>
+    </div>
+    <div class="ship-visual">
+      <div class="sv-globe">🌏</div>
+      <div class="sv-title">Ships Worldwide</div>
+      <div class="sv-sub">인터내셔널 배송 가능<br>Tracked &amp; Insured<br>40+ Countries</div>
+      <div class="sv-flags">🇮🇩🇺🇸🇬🇧🇦🇺🇰🇷</div>
+    </div>
+  </div>
+  <div class="newsletter">
+    <div class="section-tag">Fan Community</div>
+    <h2>Join 50,000+ K-pop Fans</h2>
+    <p>Early access to new arrivals, restocks, fan events, and community discounts.</p>
+    <form class="nl-form" onsubmit="handleNewsletter(event)">
+      <input type="email" class="nl-input" placeholder="Enter your email address" required>
+      <button type="submit" class="btn-primary">Join Us ✦</button>
+    </form>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     ARTICLE 1 — Top 10 K-pop Albums
+══════════════════════════════════════════════ -->
+<div id="article-1" class="page">
+  <div class="article-hero-section art-bg-1">
+    <span class="art-hero-deco">💿</span>
+    <div class="article-hero-content">
+      <div class="art-breadcrumb"><span onclick="showPage('home')">Home</span><span class="sep">›</span><span onclick="showPage('blog')">Blog</span><span class="sep">›</span><span style="color:rgba(255,255,255,.7)">Top 10 K-pop Albums</span></div>
+      <h1>Top 10 Must-Have K-pop Albums for Every Fan in 2026</h1>
+      <div class="article-meta"><span>📅 May 15, 2026</span><span>⏱ 8 min read</span><span>👤 KWave Editorial Team</span><span>🏷️ Albums &amp; Collecting</span></div>
+    </div>
+  </div>
+  <div class="article-layout">
+    <div class="article-body">
+      <p class="art-lead">Whether you are a brand-new fan or a seasoned collector, building a solid K-pop album collection is one of the most rewarding parts of fan life. We have compiled the ten albums every fan absolutely needs — chosen for their musical impact, iconic packaging, collector value, and cultural significance.</p>
+      <div class="art-scene sc-albums"><div class="as-icons">💿📀🎵</div><div class="as-label">앨범 컬렉션 — ALBUM COLLECTION</div><div class="as-sub">Official Editions · Limited Versions · Special Packaging</div></div>
+      <h2 class="art-h2">Why Albums Matter in K-pop Fan Culture</h2>
+      <p class="art-p">In K-pop, an album is far more than music. It is a carefully crafted physical experience — deluxe outer packaging, lyric booklets, hidden photocards. Each album tells a visual story that deepens the connection between artist and fan. Special editions, limited versions, and fan-sign editions add layers of collectibility that make each release an event.</p>
+      <h2 class="art-h2">The Essential 10</h2>
+      <div class="album-item" onclick="openModal(1)">
+        <div class="album-num">01</div>
+        <div class="album-cover"><div class="prod-cover cv-1" style="border-radius:10px"><div class="cv-emoji" style="font-size:1.5rem">💿</div><div class="cv-kr" style="font-size:.6rem">스타파이어</div></div></div>
+        <div class="album-info"><h4>Neon Bloom – STARFIRE</h4><div class="album-group">스타파이어 · Debut Album · 2022</div><p>The debut that launched a thousand fan clubs. "Neon Bloom" introduced STARFIRE's synth-pop sound. The Special Edition UV cover is a collector's dream — currently one of the most searched albums on the market.</p></div>
+      </div>
+      <div class="album-item" onclick="openModal(7)">
+        <div class="album-num">02</div>
+        <div class="album-cover"><div class="prod-cover cv-7" style="border-radius:10px"><div class="cv-emoji" style="font-size:1.5rem">💿</div><div class="cv-kr" style="font-size:.6rem">루나라</div></div></div>
+        <div class="album-info"><h4>Midnight Reverie – LUNARA</h4><div class="album-group">루나라 · 3rd Full Album · 2023</div><p>LUNARA's commercial and critical breakthrough. Ethereal concept photography and triple-gatefold packaging make this a stunning display piece. Every version contains a different photo booklet — collectors want all four.</p></div>
+      </div>
+      <div class="album-item">
+        <div class="album-num">03</div>
+        <div class="album-cover"><div class="prod-cover cv-10" style="border-radius:10px"><div class="cv-emoji" style="font-size:1.5rem">💿</div><div class="cv-kr" style="font-size:.6rem">넥서스8</div></div></div>
+        <div class="album-info"><h4>Aurora Pulse – NEXUS8</h4><div class="album-group">넥서스8 · 5th Full Album · 2024</div><p>The stadium era album. "Aurora Pulse" marked NEXUS8's full transition to global superstars. The lenticular cover shifts between two stunning images, and the limited Collector's Box includes an exclusive mini art book.</p></div>
+      </div>
+      <div class="album-item">
+        <div class="album-num">04</div>
+        <div class="album-cover"><div class="prod-cover cv-6" style="border-radius:10px"><div class="cv-emoji" style="font-size:1.5rem">💿</div><div class="cv-kr" style="font-size:.6rem">벨라</div></div></div>
+        <div class="album-info"><h4>Dream Sequence – VELA</h4><div class="album-group">벨라 · 2nd Mini Album · 2023</div><p>VELA's most experimental release, blending alternative R&amp;B with dream-pop. Pastel packaging and holographic inserts made it an instant aesthetic favourite. The fan-sign edition — signed by all members — is extremely rare.</p></div>
+      </div>
+      <div class="album-item">
+        <div class="album-num">05</div>
+        <div class="album-cover"><div class="prod-cover cv-8" style="border-radius:10px"><div class="cv-emoji" style="font-size:1.5rem">💿</div><div class="cv-kr" style="font-size:.6rem">이오닉스</div></div></div>
+        <div class="album-info"><h4>Chromatic Rush – EONIX</h4><div class="album-group">이오닉스 · 4th Full Album · 2024</div><p>The most visually ambitious K-pop album of 2024. Each of four versions features a dramatically different colour concept. The Polaroid photocards included are among the most traded on fan forums globally.</p></div>
+      </div>
+      <div class="album-item" onclick="openModal(1)">
+        <div class="album-num">06</div>
+        <div class="album-cover"><div class="prod-cover cv-1" style="border-radius:10px"><div class="cv-emoji" style="font-size:1.5rem">💿</div><div class="cv-kr" style="font-size:.6rem">스타파이어</div></div></div>
+        <div class="album-info"><h4>Parallel Hearts – STARFIRE</h4><div class="album-group">스타파이어 · 5th Anniversary · 2025</div><p>STARFIRE's love letter to fans. Released on their 5th debut anniversary with handwritten messages and a commemorative photobook not sold separately. Certified platinum in six countries within its first month.</p></div>
+      </div>
+      <div class="album-item">
+        <div class="album-num">07</div>
+        <div class="album-cover"><div class="prod-cover cv-14" style="border-radius:10px"><div class="cv-emoji" style="font-size:1.5rem">💿</div><div class="cv-kr" style="font-size:.6rem">넥서스8</div></div></div>
+        <div class="album-info"><h4>Eclipse Protocol – NEXUS8</h4><div class="album-group">넥서스8 · 6th Full Album · 2025</div><p>A cinematic masterpiece. A concept album with an accompanying webtoon and short film. The physical album includes QR-linked AR content that brings the booklet to life.</p></div>
+      </div>
+      <div class="album-item">
+        <div class="album-num">08</div>
+        <div class="album-cover"><div class="prod-cover cv-2" style="border-radius:10px"><div class="cv-emoji" style="font-size:1.5rem">💿</div><div class="cv-kr" style="font-size:.6rem">루나라</div></div></div>
+        <div class="album-info"><h4>Velvet Cosmos – LUNARA</h4><div class="album-group">루나라 · 4th Full Album · 2025</div><p>LUNARA's most emotional release on themes of distance and connection. The fan-chosen cover version — voted on through fan polls — makes fans feel directly involved in the creative process.</p></div>
+      </div>
+      <div class="album-item">
+        <div class="album-num">09</div>
+        <div class="album-cover"><div class="prod-cover cv-11" style="border-radius:10px"><div class="cv-emoji" style="font-size:1.5rem">💿</div><div class="cv-kr" style="font-size:.6rem">웨이브엑스</div></div></div>
+        <div class="album-info"><h4>Signal Drift – WAVEX</h4><div class="album-group">웨이브엑스 · Debut Album · 2025</div><p>The most exciting debut of 2025. WAVEX arrived with a sophisticated sound and a striking monochrome concept. First-press copies come with a transparent photocard — already one of the most sought-after debut items.</p></div>
+      </div>
+      <div class="album-item" onclick="openModal(10)">
+        <div class="album-num">10</div>
+        <div class="album-cover"><div class="prod-cover cv-13" style="border-radius:10px"><div class="cv-emoji" style="font-size:1.5rem">💿</div><div class="cv-kr" style="font-size:.6rem">벨라</div></div></div>
+        <div class="album-info"><h4>Crystal Fracture – VELA</h4><div class="album-group">벨라 · 4th Full Album · 2026</div><p>The most technically impressive production of 2026. A prismatic digipack cover that changes appearance based on light angle — each copy is effectively unique. A stunning collector's piece.</p></div>
+      </div>
+      <div class="art-quote">"Collecting K-pop albums is not just about the music — it's about owning a piece of the story you love. Each album is a time capsule of a moment in fan culture." — KWave Team</div>
+      <h2 class="art-h2">Collector Tips</h2>
+      <ul class="art-list">
+        <li>Buy the Standard Edition for listening, and Special/Limited for collecting — best of both without doubling budget.</li>
+        <li>Pre-order through official stores to secure bonus photocards and first-press exclusives.</li>
+        <li>Store albums upright in a cool, dry place away from direct sunlight to prevent fading and warping.</li>
+        <li>Use protective sleeves or album display cases if you plan to showcase your collection.</li>
+        <li>Set reminders for release dates — limited editions can sell out within hours.</li>
+      </ul>
+      <div class="art-cta-box"><h3>Shop Our Album Collection</h3><p>Find all albums mentioned — Standard, Special, and Limited Editions — in stock and ready to ship worldwide.</p><button class="btn-primary" onclick="filterProducts('Albums')">Browse All Albums →</button></div>
+    </div>
+    <div class="article-sidebar" id="sidebar-1"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     ARTICLE 2 — Photocard Collection Guide
+══════════════════════════════════════════════ -->
+<div id="article-2" class="page">
+  <div class="article-hero-section art-bg-2">
+    <span class="art-hero-deco">🃏</span>
+    <div class="article-hero-content">
+      <div class="art-breadcrumb"><span onclick="showPage('home')">Home</span><span class="sep">›</span><span onclick="showPage('blog')">Blog</span><span class="sep">›</span><span style="color:rgba(255,255,255,.7)">Photocard Collection Guide</span></div>
+      <h1>How to Build the Perfect K-pop Photocard Collection</h1>
+      <div class="article-meta"><span>📅 May 8, 2026</span><span>⏱ 6 min read</span><span>👤 KWave Editorial Team</span><span>🏷️ Collecting</span></div>
+    </div>
+  </div>
+  <div class="article-layout">
+    <div class="article-body">
+      <p class="art-lead">Photocards are the heartbeat of K-pop collecting culture — small, glossy cards included randomly in albums, making each one a surprise and every duplicate a potential trade. Whether you're hunting for your bias's card or building a complete set, here is everything you need to know.</p>
+      <div class="art-scene sc-photocards"><div class="as-icons">🃏✨💝</div><div class="as-label">포토카드 컬렉션 — PHOTOCARD COLLECTION</div><div class="as-sub">Standard · Holographic · Limited Edition · Lenticular</div></div>
+      <h2 class="art-h2">What Are Photocards &amp; Why Do Fans Collect Them?</h2>
+      <p class="art-p">Photocards (PCs) are portrait-format cards included as random inserts in K-pop albums, fan club kits, and special merchandise sets. Each features a single member in a distinct photoshoot concept, making them highly personal and emotional for fans. The randomness drives engagement, creates community through trading, and means getting your bias's card feels genuinely rewarding.</p>
+      <h2 class="art-h2">Types of Photocards to Know</h2>
+      <ul class="art-list">
+        <li><strong>Standard Photocards</strong> — included in all regular album editions. Usually one per album, randomly chosen from the full roster.</li>
+        <li><strong>Limited Version Photocards</strong> — exclusive to certain album versions (A, B, C, D). Require buying multiple versions to complete a set.</li>
+        <li><strong>Lenticular Photocards</strong> — shift between two images when tilted. Premium feel, highly collectible, found only in Special or Limited Editions.</li>
+        <li><strong>Holographic Photocards</strong> — foil-coated cards that catch and reflect light in rainbow patterns. Among the most visually stunning and sought-after.</li>
+        <li><strong>Fan-Sign/Event Photocards</strong> — distributed exclusively at fan-sign events. Extremely rare and typically the highest-value PCs on the secondary market.</li>
+        <li><strong>Seasonal/Holiday Photocards</strong> — released through fan club memberships or special seasonal packages with unique concepts.</li>
+      </ul>
+      <div class="art-product-box">
+        <div class="apb-cover"><div class="prod-cover cv-8" style="border-radius:10px;height:100%"><div class="cv-emoji" style="font-size:1.4rem">🃏</div></div></div>
+        <div class="apb-info"><div class="apb-cat">Photocards</div><div class="apb-name">Holographic Photocard Set – Rare Edition</div><div class="apb-price">$22.00</div></div>
+        <button class="btn-primary btn-sm" onclick="openModal(8)">View →</button>
+      </div>
+      <h2 class="art-h2">Storage: Protect Your Collection</h2>
+      <ul class="art-list">
+        <li><strong>Top Loaders</strong> (rigid plastic sleeves) — ideal for individual high-value cards to keep in pristine condition.</li>
+        <li><strong>Soft Sleeves / Perfect Fit Sleeves</strong> — thin plastic sleeves that fit snugly around each card for binder use.</li>
+        <li><strong>Binders with Card Pages</strong> — 9-pocket trading card binders are the go-to for organising large collections.</li>
+        <li><strong>Toploader Binders</strong> — premium option for display-grade storage where every card is individually framed.</li>
+        <li><strong>Acid-free boxes</strong> — for long-term archival storage of your most valuable cards.</li>
+      </ul>
+      <h2 class="art-h2">Trading: The Social Heart of PC Culture</h2>
+      <ul class="art-list">
+        <li><strong>WTS</strong> (Want to Sell), <strong>WTB</strong> (Want to Buy), <strong>WTT</strong> (Want to Trade) — standard abbreviations in trading posts.</li>
+        <li>Always photograph cards in good lighting before trading — show all four corners and any surface marks.</li>
+        <li>Grade cards honestly: Mint (M), Near Mint (NM), Good (G) — buyers rely on your grading.</li>
+        <li>Use tracked shipping for valuable trades and always agree on terms before confirming.</li>
+        <li>Build reputation through verified trades on Weverse, Twitter/X, and fan-specific Discord servers.</li>
+      </ul>
+      <h2 class="art-h2">Display Ideas</h2>
+      <ul class="art-list">
+        <li>Frame a complete member set or era set as a gallery wall piece using shadow boxes or clip frames.</li>
+        <li>Use acrylic stands or card holders to display photocards on your desk alongside other K-pop merch.</li>
+        <li>Create a "bias shrine" — a dedicated shelf featuring your favourite member's PCs, album, and fan-made goods.</li>
+        <li>Photograph your collection aesthetically and share on Instagram or TikTok.</li>
+      </ul>
+      <div class="art-cta-box"><h3>Shop Photocards at KWave Universe</h3><p>Official photocard sets, holographic editions, and rare limited photocards — all authenticated and shipped worldwide.</p><button class="btn-primary" onclick="filterProducts('Photocards')">Browse Photocards →</button></div>
+    </div>
+    <div class="article-sidebar" id="sidebar-2"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     ARTICLE 3 — Best Lightsticks 2026
+══════════════════════════════════════════════ -->
+<div id="article-3" class="page">
+  <div class="article-hero-section art-bg-3">
+    <span class="art-hero-deco">✨</span>
+    <div class="article-hero-content">
+      <div class="art-breadcrumb"><span onclick="showPage('home')">Home</span><span class="sep">›</span><span onclick="showPage('blog')">Blog</span><span class="sep">›</span><span style="color:rgba(255,255,255,.7)">Best Lightsticks 2026</span></div>
+      <h1>Best Official K-pop Lightsticks of 2026 — Reviewed &amp; Compared</h1>
+      <div class="article-meta"><span>📅 Apr 30, 2026</span><span>⏱ 5 min read</span><span>👤 KWave Editorial Team</span><span>🏷️ Merchandise Review</span></div>
+    </div>
+  </div>
+  <div class="article-layout">
+    <div class="article-body">
+      <p class="art-lead">The lightstick is the ultimate symbol of a K-pop fan's dedication. At concerts, thousands of glowing wands create a breathtaking sea of light — one of the most iconic visuals in live music. But which lightsticks are worth owning in 2026? We reviewed the top five official models.</p>
+      <div class="art-scene sc-lightsticks"><div class="as-icons">✨🌊💙</div><div class="as-label">응원봉 — LIGHTSTICK OCEAN</div><div class="as-sub">공식 콘서트 응원봉 · Official Concert Lightsticks · Bluetooth Enabled</div></div>
+      <h2 class="art-h2">Why Buy Official?</h2>
+      <p class="art-p">Official lightsticks connect directly to concert Bluetooth systems for synchronised light shows — something unofficial sticks cannot do. They are also built to last, with superior battery life, more colour modes, and premium materials. Buying official is also the best way to directly support the artists.</p>
+      <h2 class="art-h2">2026 Top 5 Comparison</h2>
+      <table class="ls-table">
+        <tr><th>Lightstick</th><th>Group</th><th>Bluetooth</th><th>Modes</th><th>Battery</th><th>Price</th></tr>
+        <tr><td><strong>Bloom Wand Ver.3</strong></td><td>스타파이어 STARFIRE</td><td>✅</td><td>8</td><td>6 hrs</td><td>$55</td></tr>
+        <tr><td><strong>Moonstone Wand Ver.2</strong></td><td>루나라 LUNARA</td><td>✅</td><td>6</td><td>5 hrs</td><td>$52</td></tr>
+        <tr><td><strong>Prism Stick Pro</strong></td><td>넥서스8 NEXUS8</td><td>✅</td><td>10</td><td>8 hrs</td><td>$60</td></tr>
+        <tr><td><strong>Aurora Wand</strong></td><td>이오닉스 EONIX</td><td>❌</td><td>4</td><td>4 hrs</td><td>$42</td></tr>
+        <tr><td><strong>Signal Light Ver.1</strong></td><td>웨이브엑스 WAVEX</td><td>✅</td><td>6</td><td>5 hrs</td><td>$48</td></tr>
+      </table>
+      <div class="art-product-box">
+        <div class="apb-cover"><div class="prod-cover cv-3" style="border-radius:10px;height:100%"><div class="cv-emoji" style="font-size:1.4rem">✨</div></div></div>
+        <div class="apb-info"><div class="apb-cat">Lightsticks</div><div class="apb-name">Official Lightstick Ver. 3 — Bluetooth 8 Modes</div><div class="apb-price">$55.00 <span style="font-size:.75rem;opacity:.4;text-decoration:line-through">$65</span></div></div>
+        <button class="btn-primary btn-sm" onclick="openModal(3)">Shop Now →</button>
+      </div>
+      <h2 class="art-h2">🥇 STARFIRE Bloom Wand Ver.3 — Best All-Rounder</h2>
+      <p class="art-p">The benchmark for official lightsticks in 2026. The crystal-clear acrylic orb diffuses light beautifully. With 8 Bluetooth-controlled colour modes and 6-hour battery, it's built for a full concert. The ergonomic grip has been significantly improved from Ver.2, reducing hand fatigue. A premium carrying case and dust bag are included.</p>
+      <h2 class="art-h2">🥈 NEXUS8 Prism Stick Pro — Most Feature-Rich</h2>
+      <p class="art-p">10 programmable colour modes, 8-hour battery, and a built-in mini speaker that syncs with the NEXUS8 official app. The prismatic faceted acrylic head creates a stunning disco-ball effect at high brightness. The most feature-packed stick on the market at $60.</p>
+      <h2 class="art-h2">🥉 LUNARA Moonstone Wand Ver.2 — Most Beautiful Design</h2>
+      <p class="art-p">A gradient pearl-white to lavender finish unlike anything else on the market. The soft, diffused glow suits LUNARA's dreamy visual concept perfectly. A stunning display piece that more than compensates for fewer technical features.</p>
+      <h2 class="art-h2">Buying Guide</h2>
+      <ul class="art-list">
+        <li><strong>Bluetooth connectivity</strong> — essential for attending official concerts where the venue synchronises all lightsticks.</li>
+        <li><strong>Battery life</strong> — aim for at least 4–5 hours for concert use. Look for USB-C charging over AA batteries.</li>
+        <li><strong>Build quality</strong> — check reviews for grip comfort and durability.</li>
+        <li><strong>Colour accuracy</strong> — official lightsticks are calibrated to the exact group colour palette.</li>
+      </ul>
+      <div class="art-cta-box"><h3>Shop Official Lightsticks</h3><p>All five lightsticks reviewed are available at KWave Universe — officially licensed, in-stock, ready to ship with tracked delivery.</p><button class="btn-primary" onclick="filterProducts('Lightsticks')">Browse Lightsticks →</button></div>
+    </div>
+    <div class="article-sidebar" id="sidebar-3"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     ARTICLE 4 — Merch Trends 2026
+══════════════════════════════════════════════ -->
+<div id="article-4" class="page">
+  <div class="article-hero-section art-bg-4">
+    <span class="art-hero-deco">🌐</span>
+    <div class="article-hero-content">
+      <div class="art-breadcrumb"><span onclick="showPage('home')">Home</span><span class="sep">›</span><span onclick="showPage('blog')">Blog</span><span class="sep">›</span><span style="color:rgba(255,255,255,.7)">Merchandise Trends 2026</span></div>
+      <h1>Latest K-pop Merchandise Trends of 2026</h1>
+      <div class="article-meta"><span>📅 Apr 22, 2026</span><span>⏱ 7 min read</span><span>👤 KWave Editorial Team</span><span>🏷️ Trends</span></div>
+    </div>
+  </div>
+  <div class="article-layout">
+    <div class="article-body">
+      <p class="art-lead">The K-pop merchandise industry is evolving at an extraordinary pace. What began as simple CDs and posters has grown into a multi-billion dollar ecosystem of hyper-personalised, technology-enhanced, and community-driven products. In 2026, five major trends are reshaping how fans connect with their favourite artists.</p>
+      <div class="art-scene sc-trends"><div class="as-icons">🌐📱🔮</div><div class="as-label">굿즈 트렌드 — MERCH TRENDS 2026</div><div class="as-sub">Digital · Eco-Friendly · Personalised · Collaborative · Limited Drops</div></div>
+      <div class="trend-card"><div class="trend-cover"><div class="tc-inner tc-1">📱</div></div><div class="trend-content"><div class="trend-num">01</div><h4>Digital Photocards with AR Features</h4><p>The era of the "digicard" has arrived. Official apps now offer digital photocards that fans collect and trade digitally. In 2026, AR-enabled cards let you hold your phone over the card to see the member appear in an animated video clip. Several groups have released AR album inserts that bring booklet photography to life.</p></div></div>
+      <div class="trend-card"><div class="trend-cover"><div class="tc-inner tc-2">🌿</div></div><div class="trend-content"><div class="trend-num">02</div><h4>Eco-Friendly Packaging &amp; Sustainable Merchandise</h4><p>Fan communities have increasingly demanded that groups address environmental impact. Labels now offer soy-based inks, recycled board packaging, and QR-linked digital lyric booklets. "Green editions" with significantly reduced plastic are now standard alongside regular versions.</p></div></div>
+      <div class="trend-card"><div class="trend-cover"><div class="tc-inner tc-3">🎨</div></div><div class="trend-content"><div class="trend-num">03</div><h4>Fan-Designed Collaborative Merchandise</h4><p>Official fan-designed merchandise — where the community votes on designs and winning items are produced officially — is one of 2026's most exciting developments. This model deepens fan investment. Several groups have held open design contests with winning fan designers credited on the merchandise tags.</p></div></div>
+      <div class="trend-card"><div class="trend-cover"><div class="tc-inner tc-4">✏️</div></div><div class="trend-content"><div class="trend-num">04</div><h4>Personalised &amp; Customisable Merchandise</h4><p>The "one size fits all" era is ending. Fans can now purchase customised photo books with their name on the cover, choose which member's version they receive, and commission personalised fan-made items. The shift towards personalisation reflects the desire to feel individually seen and connected.</p></div></div>
+      <div class="trend-card"><div class="trend-cover"><div class="tc-inner tc-5">⚡</div></div><div class="trend-content"><div class="trend-num">05</div><h4>Ultra-Limited Concert Exclusive Drops</h4><p>Concert merchandise booths are becoming more sophisticated. Groups announce surprise exclusive drops — available only to fans physically present at a specific concert date — via their official apps during the show itself. These ultra-limited items (sometimes fewer than 500 units) become instantly sought-after on the secondary market.</p></div></div>
+      <div class="art-quote">"The best merchandise in 2026 doesn't just represent a group — it tells a story, rewards the community, and creates an experience that lasts beyond the product." — KWave Universe Trend Report 2026</div>
+      <div class="art-cta-box"><h3>Stay Ahead of Every Drop</h3><p>Subscribe to the KWave Universe newsletter and be the first to know about new arrivals, limited drops, and exclusive merchandise.</p><button class="btn-primary" onclick="handleNewsletter({preventDefault:()=>{}})">Subscribe for Updates →</button></div>
+    </div>
+    <div class="article-sidebar" id="sidebar-4"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     ARTICLE 5 — K-pop &amp; Fan Culture
+══════════════════════════════════════════════ -->
+<div id="article-5" class="page">
+  <div class="article-hero-section art-bg-5">
+    <span class="art-hero-deco">💜</span>
+    <div class="article-hero-content">
+      <div class="art-breadcrumb"><span onclick="showPage('home')">Home</span><span class="sep">›</span><span onclick="showPage('blog')">Blog</span><span class="sep">›</span><span style="color:rgba(255,255,255,.7)">K-pop &amp; Fan Culture</span></div>
+      <h1>How K-pop Merchandise Strengthens Fan Culture Around the World</h1>
+      <div class="article-meta"><span>📅 Apr 10, 2026</span><span>⏱ 9 min read</span><span>👤 KWave Editorial Team</span><span>🏷️ Fan Culture</span></div>
+    </div>
+  </div>
+  <div class="article-layout">
+    <div class="article-body">
+      <p class="art-lead">K-pop merchandise is often viewed simply as a commercial product. But for millions of fans who have built communities, friendships, and identities around K-pop, merchandise is something far more profound — a language, a shared ritual, and a bridge that connects people across borders, cultures, and languages.</p>
+      <div class="art-scene sc-culture"><div class="as-icons">🌏💜🤝</div><div class="as-label">팬 문화 — FAN CULTURE</div><div class="as-sub">Community · Identity · Connection · Global Fandom</div></div>
+      <h2 class="art-h2">A Brief History: From Tapes to Global Phenomenon</h2>
+      <p class="art-p">K-pop merchandise has evolved dramatically since the 1990s, when Korean pop music was primarily domestic and merchandise was limited to cassette tapes and simple posters. The global K-pop wave — driven by YouTube and social media in the early 2010s — transformed the merchandise industry entirely. Today it is a multi-billion dollar global ecosystem encompassing officially licensed products, thriving fan-made crafts, and a sophisticated secondary market for rare items.</p>
+      <h2 class="art-h2">Merchandise as Identity &amp; Self-Expression</h2>
+      <p class="art-p">For many fans, K-pop merchandise is a form of personal identity expression. Wearing a group's official apparel or carrying a lightstick is a way of saying: this is who I am, this is what I love, this is my community. The vivid colours, group symbols, and member imagery make it instantly recognisable to other fans — an immediate social connector.</p>
+      <p class="art-p">Fan-made merchandise takes this further. When a fan designs their own artwork, keychains, or pins inspired by their group, they are not just making a product — they are contributing to the living creative culture of the fandom. The distinction between "fan" and "creator" is deliberately blurred in K-pop, creating a participatory culture that is unique to this genre.</p>
+      <div class="art-quote">"When I meet another fan wearing the same lightstick as me at the supermarket, we don't need to say anything. We just smile, and in that moment we're family." — KWave Community Member, Jakarta</div>
+      <h2 class="art-h2">Trading Culture: Building Global Friendships</h2>
+      <p class="art-p">Photocard trading is one of the most socially active aspects of K-pop fan culture. Fans in Indonesia trade with fans in the USA, South Korea, UK, and dozens of other countries — building genuine cross-cultural friendships through the shared language of K-pop collecting. Fan trading servers on Discord regularly host "trade weeks" where fans coordinate exchanges, shipping mutual packages of photocards, stickers, and handwritten letters.</p>
+      <h2 class="art-h2">Supporting Artists Through Merchandise</h2>
+      <p class="art-p">Purchasing official merchandise is one of the most direct ways K-pop fans support their favourite artists. In an era of streaming where per-play royalties are fractions of a cent, physical album sales and official merchandise represent meaningful revenue for artists and the creative teams that support them. Many fan communities organise coordinated "buying projects" around album releases — pooling resources to drive chart performance.</p>
+      <h2 class="art-h2">KWave Universe &amp; the Global Fan Community</h2>
+      <ul class="art-list">
+        <li>We source all official merchandise through authorised distributors — supporting the official K-pop industry.</li>
+        <li>We feature fan-made merchandise from independent creators — supporting the grassroots creative culture.</li>
+        <li>We ship globally with tracking and insurance — ensuring worldwide fans receive merchandise safely.</li>
+        <li>We contribute to fan culture through our blog, newsletter, and community social media.</li>
+      </ul>
+      <div class="art-cta-box"><h3>Join the KWave Universe Community</h3><p>Authentic K-pop merchandise from official albums to fan-made collectibles. Ships worldwide. Built by fans, for fans.</p><button class="btn-primary" onclick="showPage('products')">Shop the Collection →</button></div>
+    </div>
+    <div class="article-sidebar" id="sidebar-5"></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">韓流 KWave Universe</div>
+      <p class="footer-desc">Your official destination for authentic K-pop merchandise. Serving fans worldwide since 2020. Built by fans, for fans.</p>
+      <div class="socials">
+        <div class="soc-btn" title="Instagram">📸</div>
+        <div class="soc-btn" title="TikTok">🎵</div>
+        <div class="soc-btn" title="Twitter/X">🐦</div>
+        <div class="soc-btn" title="YouTube">▶️</div>
+      </div>
+    </div>
+    <div class="footer-col"><h4>Shop</h4><ul class="footer-links">
+      <li><a onclick="filterProducts('Albums')">💿 Albums</a></li>
+      <li><a onclick="filterProducts('Photocards')">🃏 Photocards</a></li>
+      <li><a onclick="filterProducts('Lightsticks')">✨ Lightsticks</a></li>
+      <li><a onclick="filterProducts('Posters')">🖼️ Posters</a></li>
+      <li><a onclick="filterProducts('Apparel')">👕 Apparel</a></li>
+      <li><a onclick="filterProducts('Fan-Made')">🎁 Fan-Made</a></li>
+    </ul></div>
+    <div class="footer-col"><h4>Blog</h4><ul class="footer-links">
+      <li><a onclick="showArticle(1)">Top 10 K-pop Albums</a></li>
+      <li><a onclick="showArticle(2)">Photocard Guide</a></li>
+      <li><a onclick="showArticle(3)">Best Lightsticks</a></li>
+      <li><a onclick="showArticle(4)">Merch Trends 2026</a></li>
+      <li><a onclick="showArticle(5)">K-pop &amp; Fan Culture</a></li>
+    </ul></div>
+    <div class="footer-col"><h4>Info</h4><ul class="footer-links">
+      <li><a onclick="showPage('about')">About Us</a></li>
+      <li><a onclick="showToast('📧 support@kwaveuniverse.com')">Contact Us</a></li>
+      <li><a onclick="showToast('🚚 Ships to 40+ countries')">Shipping Policy</a></li>
+      <li><a onclick="showToast('↩️ 30-day return policy')">Returns &amp; Refunds</a></li>
+    </ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 KWave Universe. All rights reserved. | 한류 공식 스토어</p>
+    <div class="pay-icons"><div class="pay-icon">VISA</div><div class="pay-icon">MC</div><div class="pay-icon">PAYPAL</div><div class="pay-icon">GOPAY</div></div>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <div class="modal-img" id="modal-img-wrap"></div>
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <div>
+        <div class="prod-cat" id="modal-cat"></div>
+        <h2 id="modal-name"></h2>
+        <div class="modal-price" id="modal-price"></div>
+        <p class="modal-desc" id="modal-desc"></p>
+        <div style="margin-bottom:8px;font-size:.82rem;color:rgba(255,255,255,.5)">Quantity</div>
+        <div class="qty-wrap">
+          <button class="qty-btn" onclick="changeQty(-1)">−</button>
+          <span class="qty-val" id="qtyVal">1</span>
+          <button class="qty-btn" onclick="changeQty(1)">+</button>
+        </div>
+      </div>
+      <div style="display:flex;gap:12px">
+        <button class="btn-primary" style="flex:1" onclick="addToCartFromModal()">Add to Cart 🛍️</button>
+        <button class="btn-outline" onclick="closeModal()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+<button class="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+/* ── DATA ───────────────────────────── */
+const PRODUCTS = [
+  {id:1,name:'Midnight Dreams — Special Edition',cat:'Albums',price:35,old:42,rating:4.9,reviews:312,badge:'Best Seller',cvClass:'cv-1',emoji:'💿',kr:'스타파이어',group:'STARFIRE',img:'photos/prod-01.jpg',desc:'Special Edition album with photocard set, lyric booklet, and exclusive poster insert. UV glowing cover — limited pressing.'},
+  {id:2,name:'Photocard Bundle Set – 12 Cards',cat:'Photocards',price:12,old:null,rating:4.8,reviews:529,badge:'Popular',cvClass:'cv-2',emoji:'🃏',kr:'포토카드 세트',group:'Mixed Groups',img:'photos/prod-02.jpg',desc:'Premium photocard bundle featuring 12 high-gloss member cards from multiple groups. Perfect for collectors and traders.'},
+  {id:3,name:'Official Lightstick Ver. 3',cat:'Lightsticks',price:55,old:65,rating:4.9,reviews:218,badge:'Official',cvClass:'cv-3',emoji:'✨',kr:'공식 응원봉',group:'STARFIRE',img:'photos/prod-03.jpg',desc:'Official concert lightstick with Bluetooth app connectivity, 8 light modes, USB-C charging, and premium build quality.'},
+  {id:4,name:'Group Poster Set — A2 Size',cat:'Posters',price:15,old:null,rating:4.7,reviews:143,badge:null,cvClass:'cv-4',emoji:'🖼️',kr:'그룹 포스터',group:'NEXUS8',img:'photos/prod-04.jpg',desc:'High-resolution A2 glossy poster set featuring the full group. Suitable for framing and room decoration.'},
+  {id:5,name:'Galaxy Hoodie — K-pop Edition',cat:'Apparel',price:58,old:72,rating:4.8,reviews:176,badge:'Sale',cvClass:'cv-5',emoji:'👕',kr:'갤럭시 후디',group:'KWave Original',img:'photos/prod-05.jpg',desc:'Premium heavyweight hoodie with embroidered K-pop artwork. Available in Black, Navy, and Dusty Pink. Pre-shrunk.'},
+  {id:6,name:'Fan-Made Acrylic Keychain Bundle',cat:'Fan-Made',price:18,old:null,rating:4.7,reviews:98,badge:'Fan Fave',cvClass:'cv-6',emoji:'🔑',kr:'아크릴 키링',group:'Fan Creator',img:'photos/prod-06.jpg',desc:'Handcrafted acrylic keychain set with glitter fill. Made by fans, for fans — each pack includes 3 unique designs.'},
+  {id:7,name:'Aurora Album — Standard Edition',cat:'Albums',price:28,old:null,rating:4.8,reviews:266,badge:null,cvClass:'cv-7',emoji:'💿',kr:'루나라 오로라',group:'LUNARA',img:'photos/prod-07.jpg',desc:'Standard edition album in deluxe gatefold packaging with member photocard, booklet, and poster.'},
+  {id:8,name:'Holographic Photocard Set — Rare',cat:'Photocards',price:22,old:30,rating:5.0,reviews:87,badge:'Limited',cvClass:'cv-8',emoji:'🌈',kr:'홀로그램 포토카드',group:'EONIX',img:'photos/prod-08.jpg',desc:'Ultra-rare holographic photocard set with prism coating. Only 500 sets available worldwide.'},
+  {id:9,name:'Neon Concert Lightstick',cat:'Lightsticks',price:48,old:null,rating:4.7,reviews:134,badge:null,cvClass:'cv-9',emoji:'💚',kr:'네온 응원봉',group:'WAVEX',img:'photos/prod-09.jpg',desc:'Vibrant neon lightstick with 6 colour modes and concert-safe design. Lightweight with sturdy handle.'},
+  {id:10,name:'"Stars Align" Collector Set',cat:'Albums',price:45,old:55,rating:4.9,reviews:201,badge:'Sale',cvClass:'cv-10',emoji:'⭐',kr:'스타즈 얼라인',group:'VELA',img:'photos/prod-10.jpg',desc:'Collector set with album, exclusive mini photobook, lyric card, and signed print (selected units).'},
+  {id:11,name:'Embroidered Fan T-Shirt',cat:'Apparel',price:42,old:null,rating:4.6,reviews:112,badge:null,cvClass:'cv-11',emoji:'👕',kr:'자수 티셔츠',group:'KWave Original',img:'photos/prod-11.jpg',desc:'Soft 100% cotton unisex tee with premium embroidered K-pop fan design. Pre-shrunk and colourfast.'},
+  {id:12,name:'Fan-Made Washi Tape Set',cat:'Fan-Made',price:9,old:null,rating:4.5,reviews:67,badge:null,cvClass:'cv-12',emoji:'🎨',kr:'와시 테이프',group:'Fan Creator',img:'photos/prod-12.jpg',desc:'Set of 5 decorative washi tapes with K-pop motifs. Perfect for journaling, scrapbooking, and packaging.'},
+  {id:13,name:'A2 Holographic Solo Poster',cat:'Posters',price:19,old:null,rating:4.8,reviews:88,badge:'New',cvClass:'cv-13',emoji:'🌟',kr:'홀로그램 포스터',group:'LUNARA',img:'photos/prod-13.jpg',desc:'A2 holographic solo member poster with foil finish. Changes appearance under different lighting.'},
+  {id:14,name:'Fan-Made Enamel Pin Set',cat:'Fan-Made',price:14,old:null,rating:4.6,reviews:52,badge:null,cvClass:'cv-14',emoji:'📌',kr:'에나멜 핀 세트',group:'Fan Creator',img:'photos/prod-14.jpg',desc:'Set of 3 hard enamel pins with K-pop icons. Nickel-plated with rubber backings. Safe for clothing.'},
+];
+
+const BLOGS = [
+  {id:1,title:'Top 10 Must-Have K-pop Albums for Every Fan',cat:'Albums',date:'May 15, 2026',read:'8 min',bcClass:'bc-1',emoji:'💿',excerpt:'Whether new or a seasoned collector, these ten landmark K-pop albums are essential for any collection.'},
+  {id:2,title:'How to Build the Perfect K-pop Photocard Collection',cat:'Collecting',date:'May 8, 2026',read:'6 min',bcClass:'bc-2',emoji:'🃏',excerpt:'From storage sleeves to trading strategies — everything you need to curate a stunning photocard collection.'},
+  {id:3,title:'Best Official K-pop Lightsticks in 2026',cat:'Merchandise',date:'Apr 30, 2026',read:'5 min',bcClass:'bc-3',emoji:'✨',excerpt:'We reviewed the top five official lightsticks — compare features, brightness, Bluetooth, and app integration.'},
+  {id:4,title:'Latest K-pop Merchandise Trends of 2026',cat:'Trends',date:'Apr 22, 2026',read:'7 min',bcClass:'bc-4',emoji:'🌐',excerpt:'From digital photocards to AR merchandise — the trends shaping how fans connect with their idols.'},
+  {id:5,title:'How K-pop Merchandise Strengthens Fan Culture',cat:'Fan Culture',date:'Apr 10, 2026',read:'9 min',bcClass:'bc-5',emoji:'💜',excerpt:'K-pop merchandise builds identity, community, and connection across borders worldwide.'},
+];
+
+/* ── NAVIGATION ─────────────────────── */
+let cartCount = 0;
+function showPage(page) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById(page).classList.add('active');
+  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+  const navEl = document.getElementById('nav-' + page);
+  if (navEl) navEl.classList.add('active');
+  else document.getElementById('nav-blog')?.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function showArticle(id) {
+  showPage('article-' + id);
+  renderSidebar(id);
+}
+
+/* ── TOAST ──────────────────────────── */
+let tt;
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  clearTimeout(tt); tt = setTimeout(() => t.classList.remove('show'), 3500);
+}
+
+/* ── COVER HTML ─────────────────────── */
+function makeCover(cvClass, emoji, kr, title, sub, img) {
+  if (img) {
+    return `<img src="${img}" alt="${title}" style="width:100%;height:100%;object-fit:cover;display:block;">`;
+  }
+  return `<div class="prod-cover ${cvClass}">
+    <div class="cv-glow"></div>
+    <div class="cv-emoji">${emoji}</div>
+    <div class="cv-kr">${kr}</div>
+    <div class="cv-title">${title}</div>
+    ${sub ? `<div class="cv-sub">${sub}</div>` : ''}
+  </div>`;
+}
+function makeBlogCover(bcClass, emoji, label) {
+  return `<div class="blog-cover ${bcClass}" style="height:100%">
+    <div class="bc-main"><span class="bc-emoji">${emoji}</span><span class="bc-label">${label}</span></div>
+  </div>`;
+}
+
+/* ── PRODUCT CARD HTML ──────────────── */
+function productCardHTML(p) {
+  const title = p.name.length > 22 ? p.name.substring(0,22)+'…' : p.name;
+  const cover = makeCover(p.cvClass, p.emoji, p.kr, title.split('—')[0].trim(), p.group, p.img);
+  return `<div class="prod-card" onclick="openModal(${p.id})">
+    <div class="prod-img">
+      ${cover}
+      ${p.badge ? `<span class="prod-badge">${p.badge}</span>` : ''}
+      <button class="prod-fav" onclick="event.stopPropagation();toggleWish(this)" aria-label="Wishlist">♡</button>
+    </div>
+    <div class="prod-info">
+      <div class="prod-cat">${p.cat}</div>
+      <div class="prod-name">${p.name}</div>
+      <div class="prod-rating">
+        <span class="stars">${'★'.repeat(Math.floor(p.rating))}${'☆'.repeat(5-Math.floor(p.rating))}</span>
+        <span class="r-count">${p.rating} (${p.reviews})</span>
+      </div>
+      <div class="prod-foot">
+        <div class="prod-price">
+          ${p.old ? `<span class="old">$${p.old.toFixed(2)}</span>` : ''}
+          $${p.price.toFixed(2)}
+        </div>
+        <button class="btn-cart" onclick="event.stopPropagation();addToCart('${p.name.replace(/'/g,"\\'")}')">+ Cart</button>
+      </div>
+    </div>
+  </div>`;
+}
+
+/* ── BLOG CARD HTML ─────────────────── */
+function blogCardHTML(b) {
+  const cover = makeBlogCover(b.bcClass, b.emoji, b.cat);
+  return `<div class="blog-card" onclick="showArticle(${b.id})">
+    <div class="blog-img">${cover}<span class="blog-tag">${b.cat}</span></div>
+    <div class="blog-body">
+      <div class="blog-meta"><span>📅 ${b.date}</span><span>⏱ ${b.read}</span></div>
+      <div class="blog-title">${b.title}</div>
+      <div class="blog-excerpt">${b.excerpt}</div>
+      <span class="blog-rm">Read Article →</span>
+    </div>
+  </div>`;
+}
+
+/* ── SIDEBAR ────────────────────────── */
+function renderSidebar(currentId) {
+  const el = document.getElementById('sidebar-' + currentId);
+  if (!el || el.innerHTML !== '') return;
+  const prodsHTML = PRODUCTS.slice(0,4).map(p => `
+    <div class="sidebar-prod" onclick="openModal(${p.id})">
+      <div class="sp-cover">
+        ${p.img
+          ? `<img src="${p.img}" alt="${p.name}" style="width:100%;height:100%;object-fit:cover;border-radius:10px;">`
+          : `<div class="prod-cover ${p.cvClass}" style="border-radius:10px"><div class="cv-glow"></div><div class="cv-emoji" style="font-size:1.3rem">${p.emoji}</div></div>`}
+      </div>
+      <div><div class="sp-name">${p.name}</div><div class="sp-price">$${p.price.toFixed(2)}</div></div>
+    </div>`).join('');
+  const relHTML = BLOGS.filter(b => b.id !== currentId).slice(0,3).map(b => `
+    <div class="related-art" onclick="showArticle(${b.id})">
+      <div class="ra-cover"><div class="blog-cover ${b.bcClass}" style="height:100%">
+        <div class="bc-main" style="gap:4px"><span style="font-size:1.5rem">${b.emoji}</span></div>
+      </div></div>
+      <div><div class="ra-title">${b.title}</div><div class="ra-date">📅 ${b.date}</div></div>
+    </div>`).join('');
+  el.innerHTML = `
+    <div class="sidebar-section" style="position:sticky;top:90px">
+      <h4>Recommended Products</h4>${prodsHTML}
+      <button class="btn-primary" style="width:100%;margin-top:10px;font-size:.82rem;padding:10px" onclick="showPage('products')">View All Products →</button>
+    </div>
+    <div class="sidebar-section"><h4>Related Articles</h4>${relHTML}</div>`;
+}
+
+/* ── INIT ───────────────────────────── */
+function initBestsellers() {
+  document.getElementById('bestsellers').innerHTML = PRODUCTS.slice(0,8).map(productCardHTML).join('');
+}
+function initHomeBlog() {
+  document.getElementById('homeBlog').innerHTML = BLOGS.slice(0,3).map(blogCardHTML).join('');
+}
+function initAllProducts(list = PRODUCTS) {
+  document.getElementById('allProducts').innerHTML = list.map(productCardHTML).join('');
+}
+function initBlogList() {
+  document.getElementById('blogList').innerHTML = BLOGS.slice(1).map(b => {
+    const cover = makeBlogCover(b.bcClass, b.emoji, b.cat);
+    return `<div class="blog-list-card" onclick="showArticle(${b.id})">
+      <div class="blc-img">${cover}</div>
+      <div class="blc-content">
+        <div class="section-tag" style="text-align:left;margin-bottom:10px">${b.cat}</div>
+        <h3>${b.title}</h3>
+        <div class="blog-meta" style="margin-bottom:10px"><span>📅 ${b.date}</span><span>⏱ ${b.read}</span></div>
+        <p>${b.excerpt}</p>
+        <span class="blog-rm">Read Article →</span>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+/* ── FILTER & SEARCH ────────────────── */
+function filterProducts(cat) {
+  showPage('products');
+  const filtered = cat === 'All' ? PRODUCTS : PRODUCTS.filter(p => p.cat === cat);
+  initAllProducts(filtered);
+  document.querySelectorAll('.f-btn').forEach(b => {
+    const label = b.textContent.replace(/[^\w\-]/g,'').trim();
+    b.classList.toggle('active', label === cat || (cat === 'All' && b.textContent.trim() === 'All'));
+  });
+}
+function searchProducts(q) {
+  const low = q.toLowerCase();
+  initAllProducts(PRODUCTS.filter(p => p.name.toLowerCase().includes(low) || p.cat.toLowerCase().includes(low) || p.group.toLowerCase().includes(low)));
+}
+
+/* ── CART ───────────────────────────── */
+function addToCart(name) {
+  cartCount++;
+  document.getElementById('cartCount').textContent = cartCount;
+  showToast(`🛍️ "${name}" added to cart!`);
+}
+function toggleWish(btn) {
+  const active = btn.textContent === '♥';
+  btn.style.background = active ? '' : 'var(--pink)';
+  btn.textContent = active ? '♡' : '♥';
+  showToast(active ? '💔 Removed from wishlist' : '❤️ Added to wishlist!');
+}
+
+/* ── MODAL ──────────────────────────── */
+let modalProduct = null, qty = 1;
+function openModal(id) {
+  const p = PRODUCTS.find(x => x.id === id);
+  if (!p) return;
+  modalProduct = p; qty = 1;
+  const coverHTML = makeCover(p.cvClass, p.emoji, p.kr, p.name, p.group, p.img);
+  document.getElementById('modal-img-wrap').innerHTML = `<div style="height:100%;width:100%">${coverHTML}</div>`;
+  document.getElementById('modal-cat').textContent = p.cat;
+  document.getElementById('modal-name').textContent = p.name;
+  document.getElementById('modal-price').textContent = `$${p.price.toFixed(2)}`;
+  document.getElementById('modal-desc').textContent = p.desc;
+  document.getElementById('qtyVal').textContent = '1';
+  document.getElementById('modal').classList.add('open');
+}
+function closeModal() { document.getElementById('modal').classList.remove('open'); }
+function changeQty(d) { qty = Math.max(1,qty+d); document.getElementById('qtyVal').textContent = qty; }
+function addToCartFromModal() { if(modalProduct){addToCart(modalProduct.name+` (×${qty})`);closeModal();} }
+document.getElementById('modal').addEventListener('click', e => { if(e.target===e.currentTarget)closeModal(); });
+
+/* ── NEWSLETTER ─────────────────────── */
+function handleNewsletter(e) { e.preventDefault(); showToast("✅ You're subscribed! Welcome to KWave! 🎉"); }
+
+/* ── SPARKLES ───────────────────────── */
+function createSparkles() {
+  const c = document.getElementById('heroStars');
+  for(let i=0;i<70;i++){
+    const s = document.createElement('div');
+    s.className = 'spark';
+    const size = Math.random()*3+1;
+    s.style.cssText = `width:${size}px;height:${size}px;left:${Math.random()*100}%;top:${Math.random()*100}%;--d:${2+Math.random()*4}s;--dl:${Math.random()*4}s`;
+    c.appendChild(s);
+  }
+}
+
+createSparkles();
+initBestsellers();
+initHomeBlog();
+initAllProducts();
+initBlogList();
+
+/* ── HAMBURGER MENU ─────────────────────── */
+function toggleNav() {
+  const nav = document.getElementById('navLinks');
+  const btn = document.getElementById('hamburger');
+  nav.classList.toggle('open');
+  btn.classList.toggle('open');
+}
+function closeNav() {
+  document.getElementById('navLinks').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('open');
+}
+// Close nav on outside click
+document.addEventListener('click', function(e) {
+  const nav = document.getElementById('navLinks');
+  const btn = document.getElementById('hamburger');
+  if (!nav.contains(e.target) && !btn.contains(e.target)) {
+    nav.classList.remove('open');
+    btn.classList.remove('open');
+  }
+});
+</script>
+</body>
+</html>
